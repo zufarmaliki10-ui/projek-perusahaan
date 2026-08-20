@@ -20,15 +20,30 @@
                             <th>Jabatan</th>
                             <th>Gaji Pokok</th>
                             <th>Tunjangan</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($jabatan as $item)
                         <tr>
-                            <td>1</td>
-                            <td>Kepala Departemen</td>
-                            <td>1000000</td>
-                            <td>1000000</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->nama_jabatan}}</td>
+                            <td>Rp {{$item->gaji_pokok}}</td>
+                            <td>Rp {{$item->tunjangan}}</td>
+                            <td class="d-flex justify-content-center">
+                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href=""></a>
+                                <form action="" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" href=""></button>
+                                </form>
+                            </td>
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="4">Data tidak ada</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

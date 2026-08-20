@@ -49,6 +49,7 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
         Route::prefix('jabatan')->group(function () {
             Route::get('/{departemen}', [HRDJabatanController::class, 'index'])->name('jabatan');
             Route::get('/{departemen}/create', [HRDJabatanController::class, 'create'])->name('jabatan.create');
+            Route::post('/{departemen}/create', [HRDJabatanController::class, 'store'])->name('jabatan.store');
         });
     });
     Route::get('/absensi', [HRDAbsensiController::class, 'index'])->name('absensi');
