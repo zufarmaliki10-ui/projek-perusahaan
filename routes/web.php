@@ -42,6 +42,8 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
         Route::post('/create', [HRDDepartemenController::class, 'store'])->name('departemen.store');
         Route::get('/update/{id}', [HRDDepartemenController::class, 'edit'])->name('departemen.edit');
         Route::put('/update/{departemen}', [HRDDepartemenController::class, 'update'])->name('departemen.update');
+
+        Route::delete('/delete/{departemen}', [HRDDepartemenController::class, 'destroy'])->name('departemen.destroy');
     });
     Route::get('/absensi', [HRDAbsensiController::class, 'index'])->name('absensi');
     Route::prefix('cuti')->group(function () {

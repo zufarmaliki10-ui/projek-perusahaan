@@ -5,8 +5,8 @@
     <!-- Data Karyawan -->
     <div class="row mx-2 my-4">
         <div class="col-md-12 my-sm-1 px-sm-1 col-xl-12 my-xl-0 px-xl-3">
-            <h5 class="mb-3">Data Departemen</h5>
-            <div class="d-flex justify-content-end my-3">
+            <div class="d-flex justify-content-between my-3">
+                <h5 class="align-content-center">Data Departemen</h5>
                 <a href="{{route('HRD.departemen.create')}}" class="btn btn-primary bi bi-plus">Tambah Data Departemen</a>
             </div>
             <div class="table-responsive">
@@ -23,15 +23,20 @@
                     <tbody>
                         @forelse ($departemen as $item)
                         <tr>
-                            <td>1</td>
+                            <td>{{$loop->iteration}}</td>
                             <td>{{$item->nama_departemen}}</td>
                             <td>10</td>
                             <td>
                                 <span class="badge {{ $item->status == 'aktif' ? 'bg-success' : 'bg-danger'}}">{{$item->status}}</span>
                             </td>
-                            <td>
-                                <a class="btn btn-sm btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>
-                                <a class="btn btn-sm btn-danger bi bi-trash-fill" href=""></a>
+                            <td class="d-flex justify-content-center">
+                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>
+                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href=""></a>
+                                <form action="{{route('HRD.departemen.destroy', $item->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" href=""></button>
+                                </form>
                             </td>
                         </tr>
                         @empty

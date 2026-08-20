@@ -52,6 +52,12 @@ class DepartemenController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('HRD.departemen')->with('success', 'Departemen baru berhasil ditambahkan');
+        return redirect()->route('HRD.departemen')->with('success', 'Departemen baru berhasil diubah');
+    }
+
+    public function destroy(Departemen $departemen)
+    {
+        $departemen->delete();
+        return redirect()->route('HRD.departemen')->with('success', 'Departemen berhasil dihapus');
     }
 }
