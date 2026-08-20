@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - MyOffice</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Local Style -->
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <!-- Toggle Btn -->
+        <div class="sidebar-toggle d-flex justify-content-center py-1">
+          <button
+            class="toggler-btn bi bi-list fs-5 text-warning"
+            type="button"
+            style="height: 30px"
+          ></button>
+        </div>
+        <!-- Toggle Btn -->
+        <!-- Sidebar Logo -->
+        <div class="sidebar-logo">
+          <h3 class="my-3 text-warning fs-3 text-center">MyOffice</h3>
+        </div>
+        <!-- Sidebar Logo -->
+        <!-- Sidebar Navigation -->
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="index.html">
+              <i class="bi bi-speedometer2"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="karyawan.html">
+              <i class="bi bi-people-fill"></i>
+              <span>Karyawan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="departemen.html">
+              <i class="bi bi-building-fill"></i>
+              <span>Departemen</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="absensi.html">
+              <i class="bi bi-calendar-check-fill"></i>
+              <span>Absensi</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="validasi_cuti.html">
+              <i class="bi bi-file-earmark-text-fill"></i>
+              <span>Cuti</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="admin_gaji.html">
+              <i class="bi bi-cash-stack"></i>
+              <span>Gaji</span>
+            </a>
+          </li>
+        </ul>
+        <!-- Sidebar Navigation -->
+      </aside>
+      <!-- Sidebar -->
+      <!-- Main Content -->
+      <div class="main">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <div class="search d-flex justify-content-between col-md-5">
+              <div class="input-group my-2 mx-2 w-100">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="basic-addon1"
+                />
+                <span
+                  class="btn btn-secondary align-content-center"
+                  id="basic-addon1"
+                  ><i class="bi bi-search"></i
+                ></span>
+              </div>
+            </div>
+            <div class="profil d-flex col-md-2 justify-content-evenly">
+              <button class="toggler-btn" type="button">
+                <i class="bi bi-bell"></i>
+              </button>
+              <div class="align-content-center text-dark">
+                <h6 class="m-0">
+                  <strong>Nama HRD</strong>
+                </h6>
+                <p class="m-0">as HRD</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+        <!-- Main Content -->
+        <div>
+          <div class="d-flex justify-content-between m-3">
+            <a
+              href="validasi_cuti.html"
+              class="btn btn-primary btn-sm bi bi-arrow-left"
+            >
+              <span class="mx-2">Kembali ke halaman sebelumnya</span>
+            </a>
+            <div class="d-flex justify-content-end gap-2">
+              <button
+                class="btn btn-secondary btn-sm bi bi-arrow-left"
+              ></button>
+              <button
+                class="btn btn-secondary btn-sm bi bi-arrow-right"
+              ></button>
+            </div>
+          </div>
+          <!-- Data Karyawan -->
+          <div class="row gap-3 mx-1 rounded-2">
+            <div class="card col-md-10 mx-auto my-2 p-3">
+              <h4>Detail Pengajuan Cuti</h4>
+              <form action="">
+                <label class="form-label mt-2" for="">Nama Karyawan</label>
+                <input class="form-control" type="text" readonly />
+                <label class="form-label mt-2" for="">Departemen</label>
+                <input class="form-control" type="text" readonly />
+                <label class="form-label mt-2" for="">Jabatan</label>
+                <input class="form-control" type="text" readonly />
+                <div class="d-flex gap-3">
+                  <div class="my-2 w-50">
+                    <label class="form-label" for="">Mulai Cuti</label>
+                    <input class="form-control" type="date" />
+                  </div>
+                  <div class="my-2 w-50">
+                    <label class="form-label" for="">Akhir Cuti</label>
+                    <input class="form-control" type="date" />
+                  </div>
+                </div>
+                <label class="form-label" for="">Rincian Cuti</label>
+                <textarea
+                  class="form-control"
+                  name=""
+                  id=""
+                  readonly
+                ></textarea>
+                <label class="form-label mt-2" for="">Disetujui Oleh</label>
+                <input class="form-control" type="text"/>
+                <div class="mt-3 d-flex gap-2 justify-content-end">
+                  <button class="btn btn-sm btn-success">ACC Cuti</button>
+                  <button class="btn btn-sm btn-danger">Tolak Cuti</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- Data Karyawan -->
+        </div>
+        <!-- Main Content -->
+        <!-- Footer Section -->
+        <footer class="p-3 text-dark fw-bold align-content-center">
+          <p class="m-0 align-content-center text-center">
+            MyOffice Designed by
+            <a class="text-decoration-none text-primary" href=""
+              >OmahCreative</a
+            >
+          </p>
+          <p class="m-0 align-content-center text-center">&copy 2026</p>
+        </footer>
+        <!-- Footer Section -->
+      </div>
+      <!-- Main Content -->
+    </div>
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Local Js -->
+    <script src="js/script.js"></script>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

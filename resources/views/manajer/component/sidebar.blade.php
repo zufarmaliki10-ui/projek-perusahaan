@@ -1,0 +1,43 @@
+        <aside id="sidebar">
+            <!-- Toggle Btn -->
+            <div class="sidebar-toggle d-flex justify-content-center py-1">
+                <button
+                    class="toggler-btn bi bi-list fs-5 text-warning"
+                    type="button"
+                    style="height: 30px"></button>
+            </div>
+            <!-- Toggle Btn -->
+            <!-- Sidebar Logo -->
+            <div class="sidebar-logo">
+                <h3 class="my-3 text-warning fs-3 text-center">MyOffice</h3>
+            </div>
+            <!-- Sidebar Logo -->
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="index.html">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="absensi.html">
+                        <i class="bi bi-calendar-check-fill"></i>
+                        <span>Absensi</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="validasi_cuti.html">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cuti</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="admin_gaji.html">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Gaji</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Sidebar Navigation -->
+        </aside>
