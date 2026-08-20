@@ -31,8 +31,8 @@
                             <td>Rp {{$item->gaji_pokok}}</td>
                             <td>Rp {{$item->tunjangan}}</td>
                             <td class="d-flex justify-content-center">
-                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href=""></a>
-                                <form action="" method="post">
+                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.jabatan.edit', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}"></a>
+                                <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" href=""></button>
@@ -41,7 +41,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="4">Data tidak ada</td>
+                            <td colspan="5">Data tidak ada</td>
                         </tr>
                         @endforelse
                     </tbody>

@@ -50,7 +50,11 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
             Route::get('/{departemen}', [HRDJabatanController::class, 'index'])->name('jabatan');
             Route::get('/{departemen}/create', [HRDJabatanController::class, 'create'])->name('jabatan.create');
             Route::post('/{departemen}/create', [HRDJabatanController::class, 'store'])->name('jabatan.store');
-        });
+            Route::get('/{departemen}/update/{jabatan}', [HRDJabatanController::class, 'edit'])->name('jabatan.edit');
+            Route::put('/{departemen}/update/{jabatan}', [HRDJabatanController::class, 'update'])->name('jabatan.update');
+
+            Route::delete('/{departemen}/delete/{jabatan}', [HRDJabatanController::class, 'destroy'])->name('jabatan.destroy');
+            });
     });
     Route::get('/absensi', [HRDAbsensiController::class, 'index'])->name('absensi');
     Route::prefix('cuti')->group(function () {
