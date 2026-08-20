@@ -13,6 +13,7 @@ class Departemen extends Model
 
     protected $fillable = [
         'nama_departemen',
+        'status',
     ];
 
     public function jabatan()

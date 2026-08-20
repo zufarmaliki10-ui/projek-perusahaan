@@ -6,6 +6,9 @@
     <div class="row mx-2 my-4">
         <div class="col-md-12 my-sm-1 px-sm-1 col-xl-12 my-xl-0 px-xl-3">
             <h5 class="mb-3">Data Departemen</h5>
+            <div class="d-flex justify-content-end my-3">
+                <a href="{{route('HRD.departemen.create')}}" class="btn btn-primary bi bi-plus">Tambah Data Departemen</a>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -14,17 +17,29 @@
                             <th>Nama Departemen</th>
                             <th>Jumlah Karyawan</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($departemen as $item)
                         <tr>
                             <td>1</td>
-                            <td>Media & Publikasi</td>
+                            <td>{{$item->nama_departemen}}</td>
                             <td>10</td>
                             <td>
-                                <span class="badge text-bg-success">Aktif</span>
+                                <span class="badge {{ $item->status == 'aktif' ? 'bg-success' : 'bg-danger'}}">{{$item->status}}</span>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>
+                                <a class="btn btn-sm btn-danger bi bi-trash-fill" href=""></a>
                             </td>
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="5">Data tidak ada</td>
+                        </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>

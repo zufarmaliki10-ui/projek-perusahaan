@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('departemen', function (Blueprint $table) {
             $table->id();
             $table->string('nama_departemen', 100);
+            $table->enum('status', ['aktif', 'non-aktif'])->default('aktif');
             $table->timestamps();
         });
     }

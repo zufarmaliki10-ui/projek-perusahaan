@@ -32,8 +32,17 @@ Route::prefix('karyawan')->as('karyawan.')->group(function () {
 // HRD
 Route::prefix('HRD')->as('HRD.')->group(function () {
     Route::get('/', [HRDDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/karyawan', [HRDKaryawanController::class, 'index'])->name('karyawan');
-    Route::get('/departemen', [HRDDepartemenController::class, 'index'])->name('departemen');
+    Route::prefix('karyawan')->group(function () {
+        Route::get('/', [HRDKaryawanController::class, 'index'])->name('karyawan');
+        Route::get('/create', [HRDKaryawanController::class, 'create'])->name('karyawan.create');
+    });
+    Route::prefix('departemen')->group(function () {
+        Route::get('/', [HRDDepartemenController::class, 'index'])->name('departemen');
+        Route::get('/create', [HRDDepartemenController::class, 'create'])->name('departemen.create');
+        Route::post('/create', [HRDDepartemenController::class, 'store'])->name('departemen.store');
+        Route::get('/update/{id}', [HRDDepartemenController::class, 'edit'])->name('departemen.edit');
+        Route::put('/update/{departemen}', [HRDDepartemenController::class, 'update'])->name('departemen.update');
+    });
     Route::get('/absensi', [HRDAbsensiController::class, 'index'])->name('absensi');
     Route::prefix('cuti')->group(function () {
         Route::get('/', [HRDCutiController::class, 'index'])->name('cuti');
