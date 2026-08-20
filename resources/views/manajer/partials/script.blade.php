@@ -2,7 +2,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Local Js -->
-    <script src="js/script.js"></script>
+    <script src="{{asset('admin/hrd/js/script.js')}}"></script>
 
     <!-- Bootstrap -->
     <script

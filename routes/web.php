@@ -10,6 +10,10 @@ use App\Http\Controllers\hrd\DepartemenController as HRDDepartemenController;
 use App\Http\Controllers\hrd\AbsensiController as HRDAbsensiController;
 use App\Http\Controllers\hrd\CutiController as HRDCutiController;
 use App\Http\Controllers\hrd\GajiController as HRDGajiController;
+use App\Http\Controllers\manajer\DashboardController as ManajerDashboardController;
+use App\Http\Controllers\manajer\AbsensiController as ManajerAbsensiController;
+use App\Http\Controllers\manajer\CutiController as ManajerCutiController;
+use App\Http\Controllers\manajer\GajiController as ManajerGajiController;
 use Illuminate\Support\Facades\Route;
 
 // Karyawan
@@ -37,3 +41,12 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
     });
 });
 // Manajer
+Route::prefix('manajer')->as('manajer.')->group(function () {
+    Route::get('/', [ManajerDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/absensi', [ManajerAbsensiController::class, 'index'])->name('absensi');
+    Route::prefix('cuti')->group(function () {
+        Route::get('/', [ManajerCutiController::class, 'index'])->name('cuti');
+        Route::get('/show', [ManajerCutiController::class, 'show'])->name('cuti.show');
+    });
+    Route::get('/gaji', [ManajerGajiController::class, 'index'])->name('gaji');
+});

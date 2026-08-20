@@ -23,5 +23,5 @@
           rel="stylesheet" />
 
       <!-- Local Style -->
-      <link rel="stylesheet" href="style/style.css" />
+      <link rel="stylesheet" href="{{asset('admin/hrd/style/style.css')}}" />
   </head>
