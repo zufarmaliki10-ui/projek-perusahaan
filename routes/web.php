@@ -23,6 +23,7 @@ Route::prefix('karyawan')->as('karyawan.')->group(function () {
     Route::get('/cuti', [KaryawanCutiController::class, 'index'])->name('cuti');
     Route::get('/gaji', [KaryawanGajiController::class, 'index'])->name('gaji');
 });
+
 // HRD
 Route::prefix('HRD')->as('HRD.')->group(function () {
     Route::get('/', [HRDDashboardController::class, 'index'])->name('dashboard');
@@ -40,6 +41,7 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
         Route::get('/show', [HRDGajiController::class, 'show'])->name('gaji.show');
     });
 });
+
 // Manajer
 Route::prefix('manajer')->as('manajer.')->group(function () {
     Route::get('/', [ManajerDashboardController::class, 'index'])->name('dashboard');

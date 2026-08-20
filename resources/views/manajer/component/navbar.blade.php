@@ -19,9 +19,9 @@
             </button>
             <div class="align-content-center text-dark">
                 <h6 class="m-0">
-                    <strong>Nama HRD</strong>
+                    <strong>Nama Manajer</strong>
                 </h6>
-                <p class="m-0">as HRD</p>
+                <p class="m-0">as Manajer</p>
             </div>
         </div>
     </div>

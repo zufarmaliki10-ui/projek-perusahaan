@@ -4,7 +4,7 @@
 <div>
     <!-- Selamat Datang -->
     <div class="d-flex justify-content-between">
-        <h4 class="p-3 m-3 text-center">Selamat Datang, HRD</h4>
+        <h4 class="p-3 m-3 text-center">Selamat Datang, Manajer</h4>
         <div class="time border rounded-4 p-3 m-3 text-center">
             <h6 id="tanggal"></h6>
             <h4 id="jam"></h4>
