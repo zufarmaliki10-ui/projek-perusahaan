@@ -16,6 +16,11 @@ use App\Http\Controllers\manajer\CutiController as ManajerCutiController;
 use App\Http\Controllers\manajer\GajiController as ManajerGajiController;
 use Illuminate\Support\Facades\Route;
 
+// Login Page
+Route::get('/', function () {
+    return view('login');
+})->name('login');
+
 // Karyawan
 Route::prefix('karyawan')->as('karyawan.')->group(function () {
     Route::get('/', [KaryawanDashboardController::class, 'index'])->name('dashboard');
