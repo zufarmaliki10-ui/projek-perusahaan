@@ -7,6 +7,7 @@ use App\Http\Controllers\karyawan\GajiController as KaryawanGajiController;
 use App\Http\Controllers\hrd\DashboardController as HRDDashboardController;
 use App\Http\Controllers\hrd\KaryawanController as HRDKaryawanController;
 use App\Http\Controllers\hrd\DepartemenController as HRDDepartemenController;
+use App\Http\Controllers\hrd\JabatanController as HRDJabatanController;
 use App\Http\Controllers\hrd\AbsensiController as HRDAbsensiController;
 use App\Http\Controllers\hrd\CutiController as HRDCutiController;
 use App\Http\Controllers\hrd\GajiController as HRDGajiController;
@@ -44,6 +45,11 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
         Route::put('/update/{departemen}', [HRDDepartemenController::class, 'update'])->name('departemen.update');
 
         Route::delete('/delete/{departemen}', [HRDDepartemenController::class, 'destroy'])->name('departemen.destroy');
+
+        Route::prefix('jabatan')->group(function () {
+            Route::get('/{departemen}', [HRDJabatanController::class, 'index'])->name('jabatan');
+            Route::get('/{departemen}/create', [HRDJabatanController::class, 'create'])->name('jabatan.create');
+        });
     });
     Route::get('/absensi', [HRDAbsensiController::class, 'index'])->name('absensi');
     Route::prefix('cuti')->group(function () {

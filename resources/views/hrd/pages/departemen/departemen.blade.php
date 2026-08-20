@@ -31,7 +31,7 @@
                             </td>
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>
-                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href=""></a>
+                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href="{{route('HRD.jabatan', $item->id)}}"></a>
                                 <form action="{{route('HRD.departemen.destroy', $item->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
