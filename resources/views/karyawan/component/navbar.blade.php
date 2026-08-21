@@ -27,5 +27,22 @@
                     </li>
                 </ul>
             </div>
+            <div class="dropdown me-4">
+                <a
+                class="dropdown-toggle text-light text-decoration-none"
+                data-bs-toggle="dropdown"
+                href=""
+                aria-expanded="">Nama Karyawan</a>
+
+                <ul class="dropdown-menu">
+                    <li class="my-2 p-2 menu">
+                        <a href="">Settings</a>
+                    </li>
+                    <li class="my-2 p-2 menu">
+                        <a href="">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </nav>

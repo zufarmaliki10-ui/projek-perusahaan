@@ -25,6 +25,24 @@ nav .navbar-nav .nav-item .nav-link {
   color: whitesmoke;
 }
 
+.dropdown-toggle::after{
+    display: none;
+}
+
+.dropdown-menu{
+    background-color: var(--mint-cream);
+    border: none;
+}
+
+.dropdown-menu .menu a{
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu .menu:hover{
+    background-color: var(--muted-teal);
+}
+
 /* Main Content */
 .card-profile{
   width: 50%;
