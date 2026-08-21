@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->text('alasan');
             $table->enum('status', ['menunggu', 'disetujui', 'ditolak'])->default('menunggu');
-            $table->enum('disetujui_oleh',['hrd', 'manajer']);
+            $table->string('disetujui_oleh')->nullable();
             $table->timestamps();
         });
     }

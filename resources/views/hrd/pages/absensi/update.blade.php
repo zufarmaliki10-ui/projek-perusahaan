@@ -37,7 +37,7 @@
                     <option value="disetujui" {{$absensi->status_validasi == 'disetujui' ? 'selected' : ''}}>Disetujui</option>
                     <option value="ditolak" {{$absensi->status_validasi == 'ditolak' ? 'selected' : ''}}>Ditolak</option>
                 </select>
-                <button type="submit" class="btn btn-success d-block w-50 mx-auto my-3" href="">Validasi</button>
+                <button type="submit" class="btn btn-success d-block w-50 mx-auto my-3">Validasi</button>
             </form>
             @else
             <button class="btn btn-secondary" disabled>

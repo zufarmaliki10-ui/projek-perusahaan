@@ -38,7 +38,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8"></td>
+                        <td colspan="8">Karyawan belum absen</td>
                     </tr>
                     @endforelse
                 </tbody>

@@ -4,30 +4,30 @@
 <section class="main">
     <div class="card p-2 col-md-6 mx-auto my-3">
         <h4>Form Pengajuan Cuti Karyawan</h4>
-        <form class="" action="">
-            <label class="form-label" for="nama">Nama</label>
+        <form action="{{route('karyawan.cuti.store')}}" method="post">
+            @csrf
+            <label class="form-label">Nama</label>
             <input
                 class="form-control"
                 type="text"
-                id="nama"
-                placeholder="Nama Lengkap Karyawan" />
+                value="{{$karyawan->nama_lengkap}}" readonly />
             <div class="d-flex justify-content-between">
                 <div class="form-tgl my-2">
-                    <label class="form-label" for="">Mulai Cuti</label>
-                    <input class="form-control" type="date" />
+                    <label class="form-label" for="tanggal_mulai">Mulai Cuti</label>
+                    <input class="form-control" type="date" name="tanggal_mulai" id="tanggal_mulai" />
                 </div>
                 <div class="form-tgl my-2">
-                    <label class="form-label" for="">Akhir Cuti</label>
-                    <input class="form-control" type="date" />
+                    <label class="form-label" for="tanggal_selesai">Akhir Cuti</label>
+                    <input class="form-control" type="date" name="tanggal_selesai" id="tanggal_selesai" />
                 </div>
             </div>
-            <label class="form-label" for="">Rincian Cuti</label>
+            <label class="form-label" for="alasan">Rincian Cuti</label>
             <textarea
                 class="form-control"
-                name=""
-                id=""
+                name="alasan"
+                id="alasan"
                 placeholder="masukkan rincian cuti anda.."></textarea>
-            <a class="btn btn-primary d-block w-50 mx-auto my-3" href="">Kirim Pengajuan Cuti</a>
+            <button type="submit" class="btn btn-primary d-block w-50 mx-auto my-3">Kirim Pengajuan Cuti</button>
         </form>
     </div>
 </section>
