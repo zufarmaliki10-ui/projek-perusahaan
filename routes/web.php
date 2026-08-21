@@ -30,7 +30,10 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Karyawan
 Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->group(function () {
     Route::get('/', [KaryawanDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/absensi', [KaryawanAbsenController::class, 'index'])->name('absensi');
+    Route::prefix('absensi')->group(function () {
+        Route::get('/', [KaryawanAbsenController::class, 'index'])->name('absensi');
+        Route::post('/create', [KaryawanAbsenController::class, 'store'])->name('absensi.masuk');
+    });
     Route::get('/cuti', [KaryawanCutiController::class, 'index'])->name('cuti');
     Route::get('/gaji', [KaryawanGajiController::class, 'index'])->name('gaji');
 });
