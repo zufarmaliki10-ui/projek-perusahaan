@@ -19,6 +19,7 @@ return new class extends Migration
             $table->time('jam_keluar')->nullable();
             $table->enum('status', ['hadir', 'izin', 'sakit', 'alfa'])->default('alfa');
             $table->text('keterangan')->nullable();
+            $table->enum('status_validasi', ['menunggu', 'disetujui', 'ditolak'])->default('menunggu');
             $table->timestamps();
         });
     }
