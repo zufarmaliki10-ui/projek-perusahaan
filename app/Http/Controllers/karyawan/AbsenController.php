@@ -37,13 +37,23 @@ class AbsenController extends Controller
         return redirect()->route('karyawan.absensi')->with('success', 'Anda telah berhasil absen masuk');
     }
 
-    public function update(Request $request, Absensi $absensi)
+    public function update(Request $request)
     {
         $karyawan = auth()->user()->karyawan;
 
         $request->validate([
             'keterangan' => 'required|string',
         ]);
+
+        $absensi = Absensi::where('id_karyawan', $karyawan->id)->whereDate('tanggal', today())->first();
+
+        if (!$absensi) {
+            return back()->with('error', 'Anda belum melakukan absen masuk');
+        }
+
+        if ($absensi->jam_keluar) {
+            return back()->with('error', 'Anda sudah absen pulang');
+        }
 
         if ($absensi->id_karyawan !== $karyawan->id) {
             abort(403, 'Silahkan masukkan absen milik anda sendiri!');

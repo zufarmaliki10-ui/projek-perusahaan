@@ -6,8 +6,8 @@
     <div class="d-flex justify-content-between">
         <h3 class="p-3 m-3 text-center">Selamat Datang, <strong class="text-decoration-underline">{{$karyawan->nama_lengkap}}</strong></h3>
         <div class="time card p-3 m-3 text-center">
-            <h4 id="tanggal"></h4>
-            <h4 id="jam"></h4>
+            <h4 class="tanggal"></h4>
+            <h4 class="jam"></h4>
         </div>
     </div>
     <!-- Selamat Datang -->

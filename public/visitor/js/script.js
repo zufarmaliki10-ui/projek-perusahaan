@@ -1,32 +1,41 @@
+// chart
 const ctx = document.getElementById("myChart");
 
-new Chart(ctx, {
-    type: "doughnut",
-    data: {
-        labels: ["Hadir", "Izin", "Sakit", "Alfa"],
-        datasets: [
-            {
-                label: "",
-                data: [12, 19, 3, 5],
-                backgroundColor: ["#008000", "#ff4500", "#808080", "#ff0000"],
-            },
-        ],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: "right",
-            },
-            title: {
-                display: true,
-                text: "Presentasi Karyawan",
+if (ctx) {
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Hadir", "Izin", "Sakit", "Alfa"],
+            datasets: [
+                {
+                    label: "",
+                    data: [12, 19, 3, 5],
+                    backgroundColor: [
+                        "#008000",
+                        "#ff4500",
+                        "#808080",
+                        "#ff0000",
+                    ],
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: "right",
+                },
+                title: {
+                    display: true,
+                    text: "Presentasi Karyawan",
+                },
             },
         },
-    },
-});
+    });
+}
 
+// jam
 function tanggalJam() {
     const sekarang = new Date();
 
@@ -40,13 +49,19 @@ function tanggalJam() {
     const menit = String(sekarang.getMinutes()).padStart(2, "0");
     const detik = String(sekarang.getSeconds()).padStart(2, "0");
 
-    document.getElementById("tanggal").textContent = tanggal;
-    document.getElementById("jam").textContent = `${jam}:${menit}:${detik}`;
+    document.querySelectorAll(".tanggal").forEach((element) => {
+        element.textContent = tanggal;
+    });
+
+    document.querySelectorAll(".jam").forEach((element) => {
+        element.textContent = `${jam}:${menit}:${detik}`;
+    });
 }
 
 tanggalJam();
 setInterval(tanggalJam, 1000);
 
+// jam pulamg
 function cekJamPulang() {
     const sekarang = new Date();
 
@@ -58,8 +73,13 @@ function cekJamPulang() {
     const formPulang = document.getElementById("absenPulang");
     const formMasuk = document.getElementById("absenMasuk");
 
+    if (!formPulang || !formMasuk) {
+        return;
+    }
+
     if (totalMenit >= 16 * 60 + 45) {
         formPulang.classList.remove("d-none");
+        formMasuk.classList.add("d-none");
     }
 }
 
