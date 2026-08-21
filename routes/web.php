@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController as LoginController;
 use App\Http\Controllers\karyawan\DashboardController as KaryawanDashboardController;
 use App\Http\Controllers\karyawan\AbsenController as KaryawanAbsenController;
 use App\Http\Controllers\karyawan\CutiController as KaryawanCutiController;
@@ -15,15 +16,19 @@ use App\Http\Controllers\manajer\DashboardController as ManajerDashboardControll
 use App\Http\Controllers\manajer\AbsensiController as ManajerAbsensiController;
 use App\Http\Controllers\manajer\CutiController as ManajerCutiController;
 use App\Http\Controllers\manajer\GajiController as ManajerGajiController;
+use App\Http\middleware\CekKaryawan;
 use Illuminate\Support\Facades\Route;
 
 // Login Page
-Route::get('/', function () {
-    return view('login');
-})->name('login');
+Route::prefix('login')->group(function () {
+    Route::get('/', [LoginController::class, 'index'])->name('login');
+    Route::post('/', [LoginController::class, 'authenticate'])->name('authenticate');
+});
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Karyawan
-Route::prefix('karyawan')->as('karyawan.')->group(function () {
+Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->group(function () {
     Route::get('/', [KaryawanDashboardController::class, 'index'])->name('dashboard');
     Route::get('/absensi', [KaryawanAbsenController::class, 'index'])->name('absensi');
     Route::get('/cuti', [KaryawanCutiController::class, 'index'])->name('cuti');

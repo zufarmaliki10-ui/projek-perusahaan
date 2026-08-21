@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('karyawan.pages.dashboard');
+        $karyawan = auth()->user()->karyawan;
+        return view('karyawan.pages.dashboard', compact('karyawan'));
     }
 }

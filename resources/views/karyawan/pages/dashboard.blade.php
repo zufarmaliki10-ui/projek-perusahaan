@@ -4,7 +4,7 @@
 <section class="main">
     <!-- Selamat Datang -->
     <div class="d-flex justify-content-between">
-        <h3 class="p-3 m-3 text-center">Selamat Datang, Karyawan</h3>
+        <h3 class="p-3 m-3 text-center">Selamat Datang, <strong class="text-decoration-underline">{{$karyawan->nama_lengkap}}</strong></h3>
         <div class="time card p-3 m-3 text-center">
             <h4 id="tanggal"></h4>
             <h4 id="jam"></h4>
@@ -22,19 +22,19 @@
             class="identitas p-2 m-2 rounded-3"
             style="border: 1px solid black">
             <h5 class="text-center mb-4">Data Diri Karyawan</h5>
-            <p>Nama Lengkap :</p>
-            <p>Jenis Kelamin :</p>
-            <p>No. Telepon :</p>
-            <p>Alamat :</p>
+            <p>Nama Lengkap : {{$karyawan->nama_lengkap}}</p>
+            <p>Jenis Kelamin : {{$karyawan->jenis_kelamin}}</p>
+            <p>No. Telepon : {{$karyawan->no_telp}}</p>
+            <p>Alamat : {{$karyawan->alamat}}</p>
         </div>
         <div
             class="identitas p-2 m-2 rounded-3"
             style="border: 1px solid black">
             <h5 class="text-center mb-4">Status Bekerja</h5>
-            <p>NIP :</p>
-            <p>Jabatan :</p>
-            <p>Status :</p>
-            <p>Tanggal Masuk :</p>
+            <p>NIP : {{$karyawan->nip}}</p>
+            <p>Jabatan : {{$karyawan->jabatan->nama_jabatan}}</p>
+            <p>Status : <span class="badge {{ $karyawan->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$karyawan->status}}</span></p>
+            <p>Tanggal Masuk : {{$karyawan->tanggal_masuk}}</p>
         </div>
         <div
             class="chart-container p-2 m-2 rounded-3"
