@@ -36,6 +36,8 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
     Route::prefix('karyawan')->group(function () {
         Route::get('/', [HRDKaryawanController::class, 'index'])->name('karyawan');
         Route::get('/create', [HRDKaryawanController::class, 'create'])->name('karyawan.create');
+        Route::get('/jabatan/{departemen}', [HRDKaryawanController::class, 'getJabatan'])->name('karyawan.jabatan');
+        Route::post('/create', [HRDKaryawanController::class, 'store'])->name('karyawan.store');
     });
     Route::prefix('departemen')->group(function () {
         Route::get('/', [HRDDepartemenController::class, 'index'])->name('departemen');
@@ -54,7 +56,7 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
             Route::put('/{departemen}/update/{jabatan}', [HRDJabatanController::class, 'update'])->name('jabatan.update');
 
             Route::delete('/{departemen}/delete/{jabatan}', [HRDJabatanController::class, 'destroy'])->name('jabatan.destroy');
-            });
+        });
     });
     Route::get('/absensi', [HRDAbsensiController::class, 'index'])->name('absensi');
     Route::prefix('cuti')->group(function () {

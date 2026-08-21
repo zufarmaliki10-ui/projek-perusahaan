@@ -21,15 +21,15 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="{{route('HRD.karyawan')}}">
-                <i class="bi bi-people-fill"></i>
-                <span>Karyawan</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
             <a class="sidebar-link" href="{{route('HRD.departemen')}}">
                 <i class="bi bi-building-fill"></i>
                 <span>Departemen</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{route('HRD.karyawan')}}">
+                <i class="bi bi-people-fill"></i>
+                <span>Karyawan</span>
             </a>
         </li>
         <li class="sidebar-item">

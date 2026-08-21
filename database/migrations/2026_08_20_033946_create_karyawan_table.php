@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('karyawan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_jabatan')->constrained('jabatan')->onDelete('cascade');
-            $table->integer('nip');
+            $table->string('nip');
             $table->string('nama_lengkap', 255);
-            $table->enum('jenis_kelamin', ['laki - laki', 'perempuan']);
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->date('tanggal_masuk');
             $table->string('no_telp');
             $table->text('alamat');
-            $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
+            $table->enum('status', ['aktif', 'non-aktif'])->default('aktif');
             $table->timestamps();
         });
     }

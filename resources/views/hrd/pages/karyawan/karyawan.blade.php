@@ -29,12 +29,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($karyawan as $item)
                         <tr>
-                            <td>1</td>
-                            <td>Heru</td>
-                            <td>Media & Publikasi</td>
-                            <td>Anggota</td>
-                            <td>13 Oktober 2025</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->nama_lengkap}}</td>
+                            <td>{{$item->jabatan->departemen->nama_departemen}}</td>
+                            <td>{{$item->jabatan->nama_jabatan}}</td>
+                            <td>{{$item->tanggal_masuk}}</td>
                             <td>
                                 <span class="badge text-bg-success">Aktif</span>
                             </td>
@@ -45,6 +46,11 @@
                                 <a class="btn btn-sm btn-warning bi bi-person-plus-fill" href=""></a>
                             </td>
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="7">Data tidak ada</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
