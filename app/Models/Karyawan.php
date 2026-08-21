@@ -12,6 +12,7 @@ class Karyawan extends Model
     protected $table = 'karyawan';
 
     protected $fillable = [
+        'id_user',
         'id_jabatan',
         'nip',
         'nama_lengkap',
@@ -40,5 +41,10 @@ class Karyawan extends Model
     public function cuti()
     {
         return $this->hasMany(Cuti::class, 'id_karyawan');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

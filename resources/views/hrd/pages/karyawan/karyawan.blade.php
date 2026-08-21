@@ -37,13 +37,17 @@
                             <td>{{$item->jabatan->nama_jabatan}}</td>
                             <td>{{$item->tanggal_masuk}}</td>
                             <td>
-                                <span class="badge text-bg-success">Aktif</span>
+                                <span class="badge {{ $item->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>
                             </td>
-                            <td>
-                                <a class="btn btn-sm btn-success bi bi-arrow-repeat" href=""></a>
-                                <a class="btn btn-sm btn-danger bi bi-trash-fill" href=""></a>
-                                <a class="btn btn-sm btn-primary bi bi-eye-fill" href=""></a>
-                                <a class="btn btn-sm btn-warning bi bi-person-plus-fill" href=""></a>
+                            <td class="d-flex justify-content-center">
+                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.karyawan.edit', $item->id)}}"></a>
+                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href="{{route('HRD.karyawan.show', $item->id)}}"></a>
+                                <form action="{{route('HRD.karyawan.destroy', $item->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
+                                </form>
+                                <a class="btn btn-sm mx-1 btn-warning bi bi-person-plus-fill" href="{{route('HRD.karyawan.make', $item->id)}}"></a>
                             </td>
                         </tr>
                         @empty

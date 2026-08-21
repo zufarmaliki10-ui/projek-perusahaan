@@ -38,6 +38,15 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
         Route::get('/create', [HRDKaryawanController::class, 'create'])->name('karyawan.create');
         Route::get('/jabatan/{departemen}', [HRDKaryawanController::class, 'getJabatan'])->name('karyawan.jabatan');
         Route::post('/create', [HRDKaryawanController::class, 'store'])->name('karyawan.store');
+        Route::get('/update/{id}', [HRDKaryawanController::class, 'edit'])->name('karyawan.edit');
+        Route::put('/update/{karyawan}', [HRDKaryawanController::class, 'update'])->name('karyawan.update');
+
+        Route::delete('/delete/{karyawan}', [HRDKaryawanController::class, 'destroy'])->name('karyawan.destroy');
+
+        Route::get('/show/{id}', [HRDKaryawanController::class, 'show'])->name('karyawan.show');
+
+        Route::get('/make/{karyawan}', [HRDKaryawanController::class, 'make'])->name('karyawan.make');
+        Route::post('/make/{karyawan}', [HRDKaryawanController::class, 'account'])->name('karyawan.account');
     });
     Route::prefix('departemen')->group(function () {
         Route::get('/', [HRDDepartemenController::class, 'index'])->name('departemen');

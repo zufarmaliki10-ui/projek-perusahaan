@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Departemen;
 use App\Models\Jabatan;
 use App\Models\Karyawan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -34,11 +35,11 @@ class KaryawanController extends Controller
             'id_jabatan' => 'required|exists:jabatan,id',
             'nip' => 'required|string|max:20',
             'nama_lengkap' => 'required|string|max:255',
-            'jenis_kelamin' => 'required|in:laki-laki, perempuan',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tanggal_masuk' => 'required|date',
             'no_telp' => 'required|string|max:20',
             'alamat' => 'required|string',
-            'status' => 'required|in:aktif, non-aktif'
+            'status' => 'required|in:aktif,non-aktif'
         ]);
 
         Karyawan::create([
@@ -55,8 +56,77 @@ class KaryawanController extends Controller
         return redirect()->route('HRD.karyawan')->with('success', 'Data karyawan berhasil ditambahkan');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('hrd.pages.karyawan.update');
+        $karyawan = Karyawan::with('jabatan.departemen')->find($id);
+        $departemen = Departemen::all();
+        return view('hrd.pages.karyawan.update', compact('karyawan', 'departemen'));
+    }
+
+    public function update(Request $request, Karyawan $karyawan)
+    {
+        $request->validate([
+            'id_jabatan' => 'required|exists:jabatan,id',
+            'nip' => 'required|string|max:20',
+            'nama_lengkap' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'tanggal_masuk' => 'required|date',
+            'no_telp' => 'required|string|max:20',
+            'alamat' => 'required|string',
+            'status' => 'required|in:aktif,non-aktif'
+        ]);
+
+        $karyawan->update([
+            'id_jabatan' => $request->id_jabatan,
+            'nip' => $request->nip,
+            'nama_lengkap' => $request->nama_lengkap,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tanggal_masuk' => $request->tanggal_masuk,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('HRD.karyawan')->with('success', 'Data karyawan berhasil diperbarui');
+    }
+
+    public function destroy(Karyawan $karyawan)
+    {
+        $karyawan->delete();
+        return redirect()->route('HRD.karyawan')->with('success', 'Data karyawan berhasil dihapus');
+    }
+
+    public function show($id)
+    {
+        $karyawan = Karyawan::with('jabatan.departemen')->find($id);
+        $departemen = Departemen::all();
+        return view('hrd.pages.karyawan.show', compact('karyawan', 'departemen'));
+    }
+
+    public function make($id)
+    {
+        $karyawan = Karyawan::find($id);
+        return view('hrd.pages.karyawan.make', compact('karyawan'));
+    }
+
+    public function account(Request $request, Karyawan $karyawan)
+    {
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = User::create([
+            'name' => $karyawan->nama_lengkap,
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => 'karyawan',
+        ]);
+
+        $karyawan->update([
+            'id_user' => $user->id,
+        ]);
+
+        return redirect()->route('HRD.karyawan')->with('success', 'Akun karyawan berhasil dibuat');
     }
 }

@@ -35,7 +35,7 @@
         <label class="form-label mt-2" for="status">Status</label>
         <select class="form-select" name="status" id="status">
             <option value="aktif">Aktif</option>
-            <option value="non-aktif">Non-Aktif</option>
+            <option value="nonaktif">Non-Aktif</option>
         </select>
         <div class="my-3 justify-content-center d-flex">
             <button class="btn btn-primary w-50" type="submit">Tambah Karyawan</button>
