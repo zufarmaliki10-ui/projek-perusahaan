@@ -35,4 +35,14 @@ class CutiController extends Controller
 
         return redirect()->route('karyawan.cuti')->with('success', 'Pengajuan cuti anda berhasil dikirim');
     }
+
+    public function show(Cuti $cuti)
+    {
+        $karyawan = auth()->user()->karyawan;
+        if ($cuti->id_karyawan !== $karyawan->id) {
+            abort(403);
+        }
+        $cuti->load('karyawan.jabatan.departemen');
+        return view('karyawan.pages.surat_cuti', compact('cuti'));
+    }
 }

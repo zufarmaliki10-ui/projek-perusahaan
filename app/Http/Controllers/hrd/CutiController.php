@@ -11,13 +11,13 @@ class CutiController extends Controller
     public function index()
     {
         $cuti = Cuti::with('karyawan.jabatan.departemen')->latest()->get();
-        return view('hrd.pages.cuti', compact('cuti'));
+        return view('hrd.pages.cuti.cuti', compact('cuti'));
     }
 
     public function edit($id)
     {
         $cuti = Cuti::with('karyawan.jabatan.departemen')->find($id);
-        return view('hrd.pages.validasi', compact('cuti'));
+        return view('hrd.pages.cuti.validasi', compact('cuti'));
     }
 
     public function update(Request $request, Cuti $cuti)
@@ -33,5 +33,11 @@ class CutiController extends Controller
         ]);
 
         return redirect()->route('HRD.cuti')->with('success', 'Pengajuan telah dikonfirmasi');
+    }
+
+    public function show($id)
+    {
+        $cuti = Cuti::with('karyawan.jabatan.departemen')->find($id);
+        return view('hrd.pages.cuti.show', compact('cuti'));
     }
 }

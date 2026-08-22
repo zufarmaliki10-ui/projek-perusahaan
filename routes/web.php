@@ -38,6 +38,7 @@ Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->gr
     Route::prefix('cuti')->group(function () {
         Route::get('/', [KaryawanCutiController::class, 'index'])->name('cuti');
         Route::post('/create', [KaryawanCutiController::class, 'store'])->name('cuti.store');
+        Route::get('/show/{cuti}', [KaryawanCutiController::class, 'show'])->name('cuti.show');
     });
     Route::get('/gaji', [KaryawanGajiController::class, 'index'])->name('gaji');
 });
@@ -88,6 +89,7 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
         Route::get('/', [HRDCutiController::class, 'index'])->name('cuti');
         Route::get('/update/{id}', [HRDCutiController::class, 'edit'])->name('cuti.validasi');
         Route::put('/update/{cuti}', [HRDCutiController::class, 'update'])->name('cuti.update');
+        Route::get('/show/{id}', [HRDCutiController::class, 'show'])->name('cuti.show');
     });
     Route::prefix('gaji')->group(function () {
         Route::get('/', [HRDGajiController::class, 'index'])->name('gaji');

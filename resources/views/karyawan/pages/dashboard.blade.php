@@ -47,29 +47,40 @@
     <div class="table-responsive mx-4 my-2">
         <h5>Tabel Pengajuan Cuti</h5>
         <table class="table table-striped table-hover">
-            <thead>
+            <thead class="text-center">
                 <tr>
                     <th>No</th>
-                    <th>Nama Lengkap</th>
-                    <th>Jabatan</th>
-                    <th>Departemen</th>
+                    <th>Alasan</th>
                     <th>Mulai Cuti</th>
                     <th>Akhir Cuti</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
+                @forelse ($cuti as $item)
                 <tr>
-                    <td>1</td>
-                    <td>Heru</td>
-                    <td>Karyawan</td>
-                    <td>Media & Publikasi</td>
-                    <td>10 OKtober 2025</td>
-                    <td>20 OKtober 2025</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->alasan}}</td>
+                    <td>{{$item->tanggal_mulai->locale('id')->translatedFormat('d F Y')}}</td>
+                    <td>{{$item->tanggal_selesai->locale('id')->translatedFormat('d F Y')}}</td>
                     <td>
-                        <span class="badge text-bg-danger">Ditolak</span>
+                        <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'menunggu',
+                            'text-bg-danger' => $item->status == 'ditolak',
+                            'text-bg-success' => $item->status == 'disetujui',
+                            ])>{{$item->status}}</span>
+                    </td>
+                    <td>
+                        @if ($item->status == 'menunggu')
+                        <button class="btn btn-secondary btn-sm" disabled>Menunggu Persetujuan</button>
+                        @else
+                        <a class="btn btn-primary btn-sm" href="{{route('karyawan.cuti.show', $item->id)}}">Lihat Surat Cuti</a>
+                        @endif
                     </td>
                 </tr>
+                @empty
+
+                @endforelse
             </tbody>
         </table>
     </div>
