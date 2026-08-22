@@ -29,7 +29,7 @@ class CutiController extends Controller
 
         $cuti->update([
             'status' => $request->status,
-            'disetujui_oleh' => $request->disetujui_oleh,
+            'disetujui_oleh' => auth()->user()->name,
         ]);
 
         return redirect()->route('HRD.cuti')->with('success', 'Pengajuan telah dikonfirmasi');
