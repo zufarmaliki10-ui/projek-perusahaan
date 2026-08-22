@@ -19,7 +19,7 @@
             </button>
             <div class="align-content-center text-dark">
                 <h6 class="m-0">
-                    <strong>Nama Manajer</strong>
+                    <strong>{{auth()->user()->name}}</strong>
                 </h6>
                 <p class="m-0">as Manajer</p>
             </div>

@@ -24,48 +24,33 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($cuti as $item)
                     <tr>
-                        <td>1</td>
-                        <td>Heru</td>
-                        <td>Karyawan</td>
-                        <td>Media & Publikasi</td>
-                        <td>10 OKtober 2025</td>
-                        <td>20 OKtober 2025</td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$item->karyawan->nama_lengkap}}</td>
+                        <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
+                        <td>{{$item->karyawan->jabatan->departemen->nama_departemen}}</td>
+                        <td>{{$item->tanggal_mulai->locale('id')->translatedFormat('d F Y')}}</td>
+                        <td>{{$item->tanggal_selesai->locale('id')->translatedFormat('d F Y')}}</td>
                         <td>
-                            <span class="badge text-bg-warning">Menunggu</span>
+                            <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'menunggu',
+                                'text-bg-danger' => $item->status == 'ditolak',
+                                'text-bg-success' => $item->status == 'disetujui',
+                                ])>{{$item->status}}</span>
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="surat_cuti.html">Lihat Pengajuan</a>
+                            @if ($item->status == 'menunggu')
+                            <a class="btn btn-warning btn-sm" href="{{route('manajer.cuti.validasi', $item->id)}}">Lihat Pengajuan</a>
+                            @else
+                            <a class="btn btn-primary btn-sm" href="{{route('manajer.cuti.show', $item->id)}}">Lihat Surat Cuti</a>
+                            @endif
                         </td>
                     </tr>
+                    @empty
                     <tr>
-                        <td>1</td>
-                        <td>Heru</td>
-                        <td>Karyawan</td>
-                        <td>Media & Publikasi</td>
-                        <td>10 OKtober 2025</td>
-                        <td>20 OKtober 2025</td>
-                        <td>
-                            <span class="badge text-bg-success">Diterima</span>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="surat_cuti.html">Lihat Pengajuan</a>
-                        </td>
+                        <td colspan="8">Tidak ada pengajuan cuti</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Heru</td>
-                        <td>Karyawan</td>
-                        <td>Media & Publikasi</td>
-                        <td>10 OKtober 2025</td>
-                        <td>20 OKtober 2025</td>
-                        <td>
-                            <span class="badge text-bg-danger">Ditolak</span>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="surat_cuti.html">Lihat Pengajuan</a>
-                        </td>
-                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

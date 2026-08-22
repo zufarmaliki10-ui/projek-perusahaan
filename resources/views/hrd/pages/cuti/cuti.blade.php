@@ -51,7 +51,6 @@
                         <td colspan="8">Tidak ada pengajuan cuti</td>
                     </tr>
                     @endforelse
-
                 </tbody>
             </table>
         </div>

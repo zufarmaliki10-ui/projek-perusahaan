@@ -129,7 +129,9 @@ Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group
     });
     Route::prefix('cuti')->group(function () {
         Route::get('/', [ManajerCutiController::class, 'index'])->name('cuti');
-        Route::get('/show', [ManajerCutiController::class, 'show'])->name('cuti.show');
+        Route::get('/update/{id}', [ManajerCutiController::class, 'edit'])->name('cuti.validasi');
+        Route::put('/update/{cuti}', [ManajerCutiController::class, 'update'])->name('cuti.update');
+        Route::get('/show/{id}', [ManajerCutiController::class, 'show'])->name('cuti.show');
     });
     Route::prefix('gaji')->group(function () {
         Route::get('/gaji', [ManajerGajiController::class, 'index'])->name('gaji');

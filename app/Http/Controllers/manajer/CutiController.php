@@ -3,17 +3,41 @@
 namespace App\Http\Controllers\manajer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cuti;
 use Illuminate\Http\Request;
 
 class CutiController extends Controller
 {
     public function index()
     {
-        return view('manajer.pages.cuti.cuti');
+        $cuti = Cuti::with('karyawan.jabatan.departemen')->latest()->get();
+        return view('manajer.pages.cuti.cuti', compact('cuti'));
     }
 
-    public function show()
+    public function edit($id)
     {
-        return view('manajer.pages.cuti.validasi');
+        $cuti = Cuti::with('karyawan.jabatan.departemen')->find($id);
+        return view('manajer.pages.cuti.validasi', compact('cuti'));
+    }
+
+    public function update(Request $request, Cuti $cuti)
+    {
+        $request->validate([
+            'status' => 'required|in:menunggu,disetujui,ditolak',
+            'disetujui_oleh' => 'required|string',
+        ]);
+
+        $cuti->update([
+            'status' => $request->status,
+            'disetujui_oleh' => $request->disetujui_oleh,
+        ]);
+
+        return redirect()->route('manajer.cuti')->with('success', 'Pengajuan telah dikonfirmasi');
+    }
+
+    public function show($id)
+    {
+        $cuti = Cuti::with('karyawan.jabatan.departemen')->find($id);
+        return view('manajer.pages.cuti.show', compact('cuti'));
     }
 }
