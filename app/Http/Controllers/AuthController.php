@@ -31,6 +31,10 @@ class AuthController extends Controller
         if (Auth::attempt($request->only(['email', 'password']))) {
             $request->session()->regenerate();
 
+            if (Auth::user()->role === 'superadmin') {
+                return redirect()->route('superadmin.dashboard')->with(['success' => 'Selamat Datang,' . Auth::user()->name]);
+            }
+
             if (Auth::user()->role === 'karyawan') {
                 return redirect()->route('karyawan.dashboard')->with(['success' => 'Selamat Datang,' . Auth::user()->name]);
             }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController as LoginController;
+use App\Http\Controllers\SuperadminController as SuperadminController;
 use App\Http\Controllers\karyawan\DashboardController as KaryawanDashboardController;
 use App\Http\Controllers\karyawan\AbsenController as KaryawanAbsenController;
 use App\Http\Controllers\karyawan\CutiController as KaryawanCutiController;
@@ -17,6 +18,8 @@ use App\Http\Controllers\manajer\AbsensiController as ManajerAbsensiController;
 use App\Http\Controllers\manajer\CutiController as ManajerCutiController;
 use App\Http\Controllers\manajer\GajiController as ManajerGajiController;
 use App\Http\middleware\CekKaryawan;
+use App\Http\Middleware\CekSuperadmin;
+use App\Http\middleware\CekHRD;
 use Illuminate\Support\Facades\Route;
 
 // Head Http
@@ -31,6 +34,12 @@ Route::prefix('login')->group(function () {
 });
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Superadmin
+Route::prefix('superadmin')->as('superadmin.')->middleware([CekSuperadmin::class])->group(function () {
+    Route::get('/', [SuperadminController::class, 'index'])->name('dashboard');
+    Route::post('/create', [SuperadminController::class, 'store'])->name('dashboard.account');
+});
 
 // Karyawan
 Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->group(function () {
@@ -53,7 +62,7 @@ Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->gr
 });
 
 // HRD
-Route::prefix('HRD')->as('HRD.')->group(function () {
+Route::prefix('HRD')->as('HRD.')->middleware([CekHRD::class])->group(function () {
     Route::get('/', [HRDDashboardController::class, 'index'])->name('dashboard');
     Route::prefix('karyawan')->group(function () {
         Route::get('/', [HRDKaryawanController::class, 'index'])->name('karyawan');

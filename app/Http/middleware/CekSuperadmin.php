@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\middleware;
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class CekHRD
+class CekSuperadmin
 {
     /**
      * Handle an incoming request.
@@ -20,8 +20,8 @@ class CekHRD
             return redirect()->route('login')->withErrors('Silahkan login terlebih dahulu');
         }
 
-        if (Auth::user()->role !== 'hrd') {
-            abort(403, 'Anda tidak memiliki akses ke halaman ini');
+        if (Auth::user()->role !== 'superadmin') {
+            abort(403, 'Anda tidak memiliki akses ke halaman ini.');
         }
 
         return $next($request);

@@ -50,6 +50,12 @@
                 <span>Gaji</span>
             </a>
         </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{route('logout')}}">
+                <i class="bi bi-door-open-fill"></i>
+                <span>Logout</span>
+            </a>
+        </li>
     </ul>
     <!-- Sidebar Navigation -->
 </aside>
