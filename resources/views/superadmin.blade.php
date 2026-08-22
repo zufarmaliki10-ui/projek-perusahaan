@@ -1,7 +1,7 @@
 @include('hrd.partials.head')
 
 <body>
-
+    <a class="btn btn-danger btn-sm m-2" href="{{route('logout')}}">Logout</a>
     <div class="col-md-8 mx-auto my-3">
         <h3>Tambah HRD / Manajer</h3>
         <form action="{{route('superadmin.dashboard.account')}}" method="post">
