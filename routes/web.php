@@ -134,6 +134,7 @@ Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group
         Route::get('/show/{id}', [ManajerCutiController::class, 'show'])->name('cuti.show');
     });
     Route::prefix('gaji')->group(function () {
-        Route::get('/gaji', [ManajerGajiController::class, 'index'])->name('gaji');
+        Route::get('/', [ManajerGajiController::class, 'index'])->name('gaji');
+        Route::get('/laporan/{bulan}/{tahun}', [ManajerGajiController::class, 'show'])->name('gaji.laporan');
     });
 });
