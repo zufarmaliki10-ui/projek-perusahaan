@@ -111,6 +111,7 @@
                             <th>Jabatan</th>
                             <th>Status Cuti</th>
                             <th>Disetujui / Ditolak Oleh</th>
+                            <th>Butki Surat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,10 +124,13 @@
                                 <span class="badge text-bg-success">{{$item->status}}</span>
                             </td>
                             <td>{{$item->disetujui_oleh}}</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('manajer.cuti.show', $item->id)}}"></a>
+                            </td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5">Belum ada pengajuan cuti bulan ini</td>
+                            <td colspan="6">Belum ada pengajuan cuti bulan ini</td>
                         </tr>
                         @endforelse
                     </tbody>
