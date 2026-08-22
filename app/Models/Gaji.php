@@ -20,6 +20,7 @@ class Gaji extends Model
         'lembur',
         'total_gaji',
         'tanggal_bayar',
+        'nama_hrd',
     ];
 
     public function karyawan()

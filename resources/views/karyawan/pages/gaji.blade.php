@@ -22,7 +22,13 @@
                     <td>{{$item->bulan}}</td>
                     <td>{{$item->tahun}}</td>
                     <td>Rp {{number_format($item->total_gaji, 0, ',', '.')}}</td>
-                    <td>{{$item->tanggal_bayar->locale('id')->translatedFormat('d F Y')}}</td>
+                    <td>
+                        @if ($item->tanggal_bayar)
+                        {{ $item->tanggal_bayar->locale('id')->translatedFormat('d F Y') }}
+                        @else
+                        Belum dibayar
+                        @endif
+                    </td>
                     <td>
                         <a class="btn btn-primary btn-sm bi bi-printer-fill" href="{{route('karyawan.gaji.show', $item->id)}}"></a>
                         <a class="btn btn-primary btn-sm bi bi-download" href="{{route('karyawan.gaji.download', $item->id)}}"></a>

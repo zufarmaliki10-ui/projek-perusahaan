@@ -62,7 +62,7 @@ class GajiController extends Controller
     {
         $request->validate([
             'lembur' => 'required|numeric|min:0',
-            'tanggal_bayar' => 'required|date'
+            'tanggal_bayar' => 'required|date',
         ]);
 
         $totalGaji = $gaji->gaji_pokok + $gaji->tunjangan + $request->lembur;
@@ -71,6 +71,7 @@ class GajiController extends Controller
             'lembur' => $request->lembur,
             'total_gaji' => $totalGaji,
             'tanggal_bayar' => $request->tanggal_bayar,
+            'nama_hrd' => auth()->user()->name,
         ]);
 
         return redirect()->route('HRD.gaji.show', $gaji->id)->with('success', 'gaji karyawan berhasil diinput');

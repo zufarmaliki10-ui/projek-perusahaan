@@ -40,7 +40,7 @@
         <h6>Kepala HRD Perusahaan</h6>
         <br>
         <br>
-        <h6>(.................................)</h6>
+        <h6>({{$gaji->nama_hrd}})</h6>
     </div>
 </body>
 

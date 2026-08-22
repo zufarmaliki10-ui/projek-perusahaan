@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('lembur', 12,2)->nullable();
             $table->decimal('total_gaji', 12,2)->nullable();
             $table->date('tanggal_bayar')->nullable();
+            $table->string('nama_hrd')->nullable();
             $table->timestamps();
         });
     }

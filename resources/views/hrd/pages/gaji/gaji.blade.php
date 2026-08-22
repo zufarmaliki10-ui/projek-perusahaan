@@ -33,7 +33,13 @@
                         <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
                         <td>{{$item->karyawan->jabatan->departemen->nama_departemen}}</td>
                         <td>Rp {{number_format($item->total_gaji, 0, ',', '.')}}</td>
-                        <td>{{$item->tanggal_bayar->locale('id')->translatedFormat('d F Y')}}</td>
+                        <td>
+                            @if ($item->tanggal_bayar)
+                            {{ $item->tanggal_bayar->locale('id')->translatedFormat('d F Y') }}
+                            @else
+                            Belum dibayar
+                            @endif
+                        </td>
                         <td>
                             <a class="btn btn-primary btn-sm" href="{{route('HRD.gaji.show', $item->id)}}">Lihat Slip</a>
                         </td>

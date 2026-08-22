@@ -36,10 +36,16 @@
     </div>
     <div class="d-flex justify-content-end">
         <div>
-            <p>Yogyakarta, {{$gaji->tanggal_bayar->locale('id')->translatedFormat('d F Y')}}</p>
+            <p>Yogyakarta,
+                @if ($gaji->tanggal_bayar)
+                {{ $gaji->tanggal_bayar->locale('id')->translatedFormat('d F Y') }}
+                @else
+                Belum dibayar
+                @endif
+            </p>
             <h6 class="text-center">Mengetahui,</h6>
             <h6 class="text-center mb-5">Kepala HRD Perusahaan</h6>
-            <h6 class="text-center mt-5">(.................................)</h6>
+            <h6 class="text-center mt-5">({{auth()->user()->name}})</h6>
         </div>
     </div>
     <a class="btn btn-primary mt-3" href="{{route('HRD.gaji')}}">Kirim</a>
