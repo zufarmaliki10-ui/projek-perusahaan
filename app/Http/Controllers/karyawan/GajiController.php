@@ -4,11 +4,24 @@ namespace App\Http\Controllers\karyawan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Gaji;
 
 class GajiController extends Controller
 {
     public function index()
     {
-        return view('karyawan.pages.gaji');
+        $karyawan = auth()->user()->karyawan;
+        $gaji = Gaji::where('id_karyawan', $karyawan->id)->latest()->get();
+        return view('karyawan.pages.gaji', compact('gaji', 'karyawan'));
+    }
+
+    public function show(Gaji $gaji)
+    {
+        $karyawan = auth()->user()->karyawan;
+        if ($gaji->id_karyawan !== $karyawan->id) {
+            abort(403);
+        }
+        $gaji->load('karyawan.jabatan.departemen');
+        return view('karyawan.pages.slip_gaji', compact('karyawan', 'gaji'));
     }
 }

@@ -45,7 +45,10 @@ Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->gr
         Route::post('/create', [KaryawanCutiController::class, 'store'])->name('cuti.store');
         Route::get('/show/{cuti}', [KaryawanCutiController::class, 'show'])->name('cuti.show');
     });
-    Route::get('/gaji', [KaryawanGajiController::class, 'index'])->name('gaji');
+    Route::prefix('gaji')->group(function () {
+        Route::get('/', [KaryawanGajiController::class, 'index'])->name('gaji');
+        Route::get('/show/{gaji}', [KaryawanGajiController::class, 'show'])->name('gaji.show');
+    });
 });
 
 // HRD

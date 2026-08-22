@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg no-print">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold fs-3 text-warning" href="#">MyOffice</a>
             <button

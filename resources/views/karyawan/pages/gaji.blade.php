@@ -9,22 +9,30 @@
                 <tr>
                     <th>No</th>
                     <th>Bulan</th>
+                    <th>Tahun</th>
                     <th>Total Gaji</th>
                     <th>Tanggal Cair</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse ($gaji as $item)
                 <tr>
-                    <td>1</td>
-                    <td>Oktober</td>
-                    <td>Rp.3.500.000,00</td>
-                    <td>10 Oktober 2026</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->bulan}}</td>
+                    <td>{{$item->tahun}}</td>
+                    <td>Rp {{number_format($item->total_gaji, 0, ',', '.')}}</td>
+                    <td>{{$item->tanggal_bayar->locale('id')->translatedFormat('d F Y')}}</td>
                     <td>
-                        <a class="btn btn-primary btn-sm bi bi-printer-fill" href=""><span class="mx-1">Cetak</span></a>
-                        <a class="btn btn-primary btn-sm bi bi-download" href=""><span class="mx-1">Download</span></a>
+                        <a class="btn btn-primary btn-sm bi bi-printer-fill" href="{{route('karyawan.gaji.show', $item->id)}}"></a>
+                        <a class="btn btn-primary btn-sm bi bi-download" href=""></a>
                     </td>
                 </tr>
+                @empty
+                <tr>
+                    <td colspan="5">Gaji belum dicairkan</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
