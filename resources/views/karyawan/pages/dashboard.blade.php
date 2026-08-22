@@ -79,7 +79,9 @@
                     </td>
                 </tr>
                 @empty
-
+<tr>
+    <td colspan="6">Belum ada pengajuan cuti</td>
+</tr>
                 @endforelse
             </tbody>
         </table>

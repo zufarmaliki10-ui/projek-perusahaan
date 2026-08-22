@@ -40,7 +40,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6">Belum ada input gaji bulan ini</td>
+                        <td colspan="7">Belum ada input gaji bulan ini</td>
                     </tr>
                     @endforelse
                 </tbody>

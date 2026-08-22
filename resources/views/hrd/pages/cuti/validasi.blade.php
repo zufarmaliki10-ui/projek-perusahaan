@@ -31,11 +31,11 @@
                 <div class="d-flex gap-3">
                     <div class="my-2 w-50">
                         <label class="form-label" for="">Mulai Cuti</label>
-                        <input class="form-control" type="date" value="{{$cuti->tanggal_mulai}}" readonly />
+                        <input class="form-control" type="text" value="{{$cuti->tanggal_mulai->locale('id')->translatedFormat('d F Y')}}" readonly />
                     </div>
                     <div class="my-2 w-50">
                         <label class="form-label" for="">Akhir Cuti</label>
-                        <input class="form-control" type="date" value="{{$cuti->tanggal_selesai}}" readonly />
+                        <input class="form-control" type="text" value="{{$cuti->tanggal_selesai->locale('id')->translatedFormat('d F Y')}}" readonly />
                     </div>
                 </div>
                 <label class="form-label" for="">Rincian Cuti</label>
