@@ -24,8 +24,8 @@
             <p>Departemen : {{$gaji->karyawan->jabatan->departemen->nama_departemen}}</p>
             <p>Jabatan : {{$gaji->karyawan->jabatan->nama_jabatan}}</p>
             <p>Periode Gaji : {{$gaji->bulan}} {{$gaji->tahun}}</p>
-            <p>Bank Karyawan :</p>
-            <p>Rekening Karyawan :</p>
+            <p>Bank Karyawan : {{$gaji->karyawan->bank}}</p>
+            <p>Rekening Karyawan : {{$gaji->karyawan->nomer_rekening}}</p>
         </div>
         <div class="card col-md-10 mx-auto my-1 p-3">
             <h4>Rincian Gaji Karyawan</h4>

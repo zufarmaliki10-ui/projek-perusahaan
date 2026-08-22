@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nip');
             $table->string('nama_lengkap', 255);
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->string('bank', 100);
+            $table->string('nomer_rekening', 100);
             $table->date('tanggal_masuk');
             $table->string('no_telp');
             $table->text('alamat');

@@ -18,6 +18,10 @@
         </select>
         <label class="form-label mt-2" for="no_telp">No. Telp</label>
         <input class="form-control" type="text" name="no_telp" id="no_telp" value="{{$karyawan->no_telp}}">
+        <label class="form-label mt-2" for="bank">Bank</label>
+        <input class="form-control" type="text" name="bank" id="bank" value="{{$karyawan->bank}}">
+        <label class="form-label mt-2" for="nomer_rekening">Nomer Rekening</label>
+        <input class="form-control" type="text" name="nomer_rekening" id="nomer_rekening" value="{{$karyawan->nomer_rekening}}">
         <label class="form-label mt-2" for="alamat">Alamat</label>
         <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat karyawan...">{{$karyawan->alamat}}</textarea>
         <label class="form-label mt-2" for="departemen">Departemen</label>

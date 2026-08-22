@@ -13,13 +13,17 @@
                     <p>NIP</p>
                     <p>Jenis Kelamin</p>
                     <p>No. Telp</p>
+                    <p>Bank</p>
+                    <p>Nomer Rekening</p>
                     <p>Alamat</p>
-                    <p>Departeme</p>
+                    <p>Departemen</p>
                     <p>Jabatan</p>
                     <p>Tanggal Masuk</p>
                     <p>Status</p>
                 </div>
                 <div class="mx-3">
+                    <p>:</p>
+                    <p>:</p>
                     <p>:</p>
                     <p>:</p>
                     <p>:</p>
@@ -35,6 +39,8 @@
                     <p>{{$karyawan->nip}}</p>
                     <p>{{$karyawan->jenis_kelamin}}</p>
                     <p>{{$karyawan->no_telp}}</p>
+                    <p>{{$karyawan->bank}}</p>
+                    <p>{{$karyawan->nomer_rekening}}</p>
                     <p>{{$karyawan->alamat}}</p>
                     <p>{{$karyawan->jabatan->departemen->nama_departemen}}</p>
                     <p>{{$karyawan->jabatan->nama_jabatan}}</p>

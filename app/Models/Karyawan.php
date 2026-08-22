@@ -17,6 +17,8 @@ class Karyawan extends Model
         'nip',
         'nama_lengkap',
         'jenis_kelamin',
+        'bank',
+        'nomer_rekening',
         'tanggal_masuk',
         'no_telp',
         'alamat',
