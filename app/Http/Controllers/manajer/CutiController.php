@@ -9,11 +9,11 @@ class CutiController extends Controller
 {
     public function index()
     {
-        return view('manajer.pages.cuti');
+        return view('manajer.pages.cuti.cuti');
     }
 
     public function show()
     {
-        return view('manajer.pages.validasi');
+        return view('manajer.pages.cuti.validasi');
     }
 }

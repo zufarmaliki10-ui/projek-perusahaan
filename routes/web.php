@@ -124,10 +124,14 @@ Route::prefix('HRD')->as('HRD.')->middleware([CekHRD::class])->group(function ()
 // Manajer
 Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group(function () {
     Route::get('/', [ManajerDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/absensi', [ManajerAbsensiController::class, 'index'])->name('absensi');
+    Route::prefix('absensi')->group(function () {
+        Route::get('/', [ManajerAbsensiController::class, 'index'])->name('absensi');
+    });
     Route::prefix('cuti')->group(function () {
         Route::get('/', [ManajerCutiController::class, 'index'])->name('cuti');
         Route::get('/show', [ManajerCutiController::class, 'show'])->name('cuti.show');
     });
-    Route::get('/gaji', [ManajerGajiController::class, 'index'])->name('gaji');
+    Route::prefix('gaji')->group(function () {
+        Route::get('/gaji', [ManajerGajiController::class, 'index'])->name('gaji');
+    });
 });

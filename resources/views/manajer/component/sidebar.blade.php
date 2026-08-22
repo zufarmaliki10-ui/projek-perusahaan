@@ -15,25 +15,25 @@
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="">
+                    <a class="sidebar-link" href="{{route('manajer.dashboard')}}">
                         <i class="bi bi-speedometer2"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="absensi.html">
+                    <a class="sidebar-link" href="{{route('manajer.absensi')}}">
                         <i class="bi bi-calendar-check-fill"></i>
                         <span>Absensi</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="validasi_cuti.html">
+                    <a class="sidebar-link" href="{{route('manajer.cuti')}}">
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <span>Cuti</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="admin_gaji.html">
+                    <a class="sidebar-link" href="{{route('manajer.gaji')}}">
                         <i class="bi bi-cash-stack"></i>
                         <span>Gaji</span>
                     </a>

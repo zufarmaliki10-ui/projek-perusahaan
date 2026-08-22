@@ -9,6 +9,6 @@ class GajiController extends Controller
 {
     public function index()
     {
-        return view('manajer.pages.gaji');
+        return view('manajer.pages.gaji.gaji');
     }
 }

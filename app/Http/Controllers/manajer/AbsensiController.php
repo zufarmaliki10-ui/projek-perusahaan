@@ -9,6 +9,6 @@ class AbsensiController extends Controller
 {
     public function index()
     {
-        return view('manajer.pages.absensi');
+        return view('manajer.pages.absen.absensi');
     }
 }
