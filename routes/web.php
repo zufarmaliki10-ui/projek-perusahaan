@@ -20,6 +20,7 @@ use App\Http\Controllers\manajer\GajiController as ManajerGajiController;
 use App\Http\middleware\CekKaryawan;
 use App\Http\Middleware\CekSuperadmin;
 use App\Http\middleware\CekHRD;
+use App\Http\middleware\CekManajer;
 use Illuminate\Support\Facades\Route;
 
 // Head Http
@@ -121,7 +122,7 @@ Route::prefix('HRD')->as('HRD.')->middleware([CekHRD::class])->group(function ()
 });
 
 // Manajer
-Route::prefix('manajer')->as('manajer.')->group(function () {
+Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group(function () {
     Route::get('/', [ManajerDashboardController::class, 'index'])->name('dashboard');
     Route::get('/absensi', [ManajerAbsensiController::class, 'index'])->name('absensi');
     Route::prefix('cuti')->group(function () {
