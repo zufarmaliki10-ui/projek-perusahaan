@@ -15,7 +15,7 @@
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{route()}}">
+                    <a class="sidebar-link" href="">
                         <i class="bi bi-speedometer2"></i>
                         <span>Dashboard</span>
                     </a>
