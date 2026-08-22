@@ -48,6 +48,7 @@ Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->gr
     Route::prefix('gaji')->group(function () {
         Route::get('/', [KaryawanGajiController::class, 'index'])->name('gaji');
         Route::get('/show/{gaji}', [KaryawanGajiController::class, 'show'])->name('gaji.show');
+        Route::get('/download/{gaji}', [KaryawanGajiController::class, 'download'])->name('gaji.download');
     });
 });
 
