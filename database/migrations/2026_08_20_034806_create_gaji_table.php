@@ -16,11 +16,11 @@ return new class extends Migration
             $table->foreignId('id_karyawan')->constrained('karyawan')->onDelete('cascade');
             $table->string('bulan', 50);
             $table->year('tahun');
-            $table->decimal('gaji_pokok', 12,2);
-            $table->decimal('tunjangan', 12,2);
-            $table->decimal('lembur', 12,2);
-            $table->decimal('total_gaji', 12,2);
-            $table->date('tanggal_bayar');
+            $table->decimal('gaji_pokok', 12,2)->nullable();
+            $table->decimal('tunjangan', 12,2)->nullable();
+            $table->decimal('lembur', 12,2)->nullable();
+            $table->decimal('total_gaji', 12,2)->nullable();
+            $table->date('tanggal_bayar')->nullable();
             $table->timestamps();
         });
     }

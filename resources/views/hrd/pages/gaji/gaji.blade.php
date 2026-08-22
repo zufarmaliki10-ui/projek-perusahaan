@@ -11,7 +11,7 @@
                 <select class="form-select w-25" name="" id="">
                     <option value="">-- Pilih Bulan --</option>
                 </select>
-                <a class="btn btn-primary btn-sm bi bi-plus align-content-center" href="{{route('HRD.gaji.input')}}">Input Gaji Karyawan</a>
+                <a class="btn btn-primary btn-sm bi bi-plus align-content-center" href="{{route('HRD.gaji.create')}}">Input Gaji Karyawan</a>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
@@ -21,33 +21,28 @@
                         <th>Jabatan</th>
                         <th>Departemen</th>
                         <th>Total Gaji</th>
-                        <th>Status Pencairan</th>
                         <th>Tanggal Cair</th>
+                        <th>Bukti Slip</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($gaji as $item)
                     <tr>
-                        <td>1</td>
-                        <td>Heru</td>
-                        <td>Karyawan</td>
-                        <td>Media & Publikasi</td>
-                        <td>Rp10.000.000,00</td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$item->karyawan->nama_lengkap}}</td>
+                        <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
+                        <td>{{$item->karyawan->jabatan->departemen->nama_departemen}}</td>
+                        <td>Rp {{number_format($item->total_gaji, 0, ',', '.')}}</td>
+                        <td>{{$item->tanggal_bayar->locale('id')->translatedFormat('d F Y')}}</td>
                         <td>
-                            <span class="badge text-bg-warning">Menunggu</span>
+                            <a class="btn btn-primary btn-sm" href="{{route('HRD.gaji.show', $item->id)}}">Lihat Slip</a>
                         </td>
-                        <td>10 Oktober</td>
                     </tr>
+                    @empty
                     <tr>
-                        <td>1</td>
-                        <td>Heru</td>
-                        <td>Karyawan</td>
-                        <td>Media & Publikasi</td>
-                        <td>Rp10.000.000,00</td>
-                        <td>
-                            <span class="badge text-bg-success">Terkirim</span>
-                        </td>
-                        <td>10 Oktober</td>
+                        <td colspan="6">Belum ada input gaji bulan ini</td>
                     </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

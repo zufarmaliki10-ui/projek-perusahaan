@@ -88,10 +88,45 @@ if (departemen && jabatan) {
                     jabatan.innerHTML += `<option value="${item.id}">${item.nama_jabatan}</option>`;
                 });
             })
-            .catch(error => {
-                console.error('Gagal mengambil data jabatan:', error);
+            .catch((error) => {
+                console.error("Gagal mengambil data jabatan:", error);
 
-                jabatan.innerHTML = '<option value="">Data tidak ada</option>'
+                jabatan.innerHTML = '<option value="">Data tidak ada</option>';
+            });
+    });
+}
+
+//nyari departemen karyawan
+const departemenGaji = document.querySelector("#departemenGaji");
+const karyawanGaji = document.querySelector("#karyawanGaji");
+
+if (departemenGaji && karyawanGaji) {
+    departemenGaji.addEventListener("change", function () {
+        const departemenId = this.value;
+
+        karyawanGaji.innerHTML =
+            '<option value="">Memuat nama karyawan....</option>';
+
+        if (!departemenId) {
+            karyawanGaji.innerHTML =
+                '<option value="">-- Pilih Departemen Terlebih Dahulu --</option>';
+            return;
+        }
+
+        fetch(`/HRD/gaji/karyawan/${departemenId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                karyawanGaji.innerHTML =
+                    '<option value="">-- Pilih Karyawan --</option>';
+                data.forEach((item) => {
+                    karyawanGaji.innerHTML += `<option value="${item.id}">${item.nama_lengkap}</option>`;
+                });
             })
+            .catch((error) => {
+                console.error("Gagal mengambil data karyawan:", error);
+
+                karyawanGaji.innerHTML =
+                    '<option value="">Data tidak ada</option>';
+            });
     });
 }

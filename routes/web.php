@@ -19,6 +19,11 @@ use App\Http\Controllers\manajer\GajiController as ManajerGajiController;
 use App\Http\middleware\CekKaryawan;
 use Illuminate\Support\Facades\Route;
 
+// Head Http
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
 // Login Page
 Route::prefix('login')->group(function () {
     Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -93,9 +98,12 @@ Route::prefix('HRD')->as('HRD.')->group(function () {
     });
     Route::prefix('gaji')->group(function () {
         Route::get('/', [HRDGajiController::class, 'index'])->name('gaji');
-        Route::get('/input', [HRDGajiController::class, 'input'])->name('gaji.input');
         Route::get('/create', [HRDGajiController::class, 'create'])->name('gaji.create');
-        Route::get('/show', [HRDGajiController::class, 'show'])->name('gaji.show');
+        Route::get('/karyawan/{departemen}', [HRDGajiController::class, 'getKaryawan'])->name('gaji.karyawan');
+        Route::post('/create', [HRDGajiController::class, 'store'])->name('gaji.store');
+        Route::get('/update/{id}', [HRDGajiController::class, 'edit'])->name('gaji.edit');
+        Route::put('/update/{gaji}', [HRDGajiController::class, 'update'])->name('gaji.update');
+        Route::get('/show/{id}', [HRDGajiController::class, 'show'])->name('gaji.show');
     });
 });
 

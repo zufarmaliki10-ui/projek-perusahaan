@@ -9,7 +9,7 @@ class Gaji extends Model
 {
     use HasFactory;
 
-        protected $table = 'gaji';
+    protected $table = 'gaji';
 
     protected $fillable = [
         'id_karyawan',
@@ -25,5 +25,12 @@ class Gaji extends Model
     public function karyawan()
     {
         return $this->belongsTo(Karyawan::class, 'id_karyawan');
+    }
+
+    public function casts(): array
+    {
+        return [
+            'tanggal_bayar' => 'date',
+        ];
     }
 }
