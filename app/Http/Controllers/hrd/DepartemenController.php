@@ -10,7 +10,7 @@ class DepartemenController extends Controller
 {
     public function index()
     {
-        $departemen = Departemen::latest()->get();
+        $departemen = Departemen::with('jabatan.karyawan')->get();
         return view('hrd.pages.departemen.departemen', compact('departemen'));
     }
 

@@ -32,10 +32,10 @@
                             <td>Rp {{$item->tunjangan}}</td>
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.jabatan.edit', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}"></a>
-                                <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post">
+                                <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" onclick="return confirm('Anda yakin menghapus jabatan ini?')"></button>
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
                                 </form>
                             </td>
                         </tr>

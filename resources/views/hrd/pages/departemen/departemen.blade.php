@@ -25,17 +25,17 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nama_departemen}}</td>
-                            <td>10</td>
+                            <td>{{$item->jabatan->sum(fn ($jabatan) => $jabatan->karyawan->count())}}</td>
                             <td>
                                 <span class="badge {{ $item->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>
                             </td>
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>
                                 <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href="{{route('HRD.jabatan', $item->id)}}"></a>
-                                <form action="{{route('HRD.departemen.destroy', $item->id)}}" method="post">
+                                <form action="{{route('HRD.departemen.destroy', $item->id)}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" onclick="return confirm('Anda yakin menghapus departemen ini?')"></button>
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
                                 </form>
                             </td>
                         </tr>

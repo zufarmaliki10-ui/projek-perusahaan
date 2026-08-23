@@ -130,3 +130,21 @@ if (departemenGaji && karyawanGaji) {
             });
     });
 }
+
+function alertConfirm(event, form, pesan) {
+    event.preventDefault();
+
+    Swal.fire({
+        title: "Anda yakin menghapus ini?",
+        text: "Data yang sudah dihapus tidak dapat kembali",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#016124",
+        cancelButtonColor: "rgb(111, 11, 11)",
+        confirmButtonText: "Ya, Hapus data ini",
+    }).then((result) => {
+        if (result.isConfirmed) form.submit();
+    });
+
+    return false;
+}

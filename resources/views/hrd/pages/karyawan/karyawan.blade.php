@@ -42,10 +42,10 @@
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.karyawan.edit', $item->id)}}"></a>
                                 <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href="{{route('HRD.karyawan.show', $item->id)}}"></a>
-                                <form action="{{route('HRD.karyawan.destroy', $item->id)}}" method="post">
+                                <form action="{{route('HRD.karyawan.destroy', $item->id)}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" onclick="return confirm('Anda yakin karyawan ini?')"></button>
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
                                 </form>
                                 <a class="btn btn-sm mx-1 btn-warning bi bi-person-plus-fill" href="{{route('HRD.karyawan.make', $item->id)}}"></a>
                             </td>
