@@ -35,7 +35,7 @@
                                 <form action="{{route('HRD.departemen.destroy', $item->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" onclick="return confirm('Anda yakin menghapus departemen ini?')"></button>
                                 </form>
                             </td>
                         </tr>

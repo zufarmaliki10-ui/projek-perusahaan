@@ -45,7 +45,7 @@
                                 <form action="{{route('HRD.karyawan.destroy', $item->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
+                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill" onclick="return confirm('Anda yakin karyawan ini?')"></button>
                                 </form>
                                 <a class="btn btn-sm mx-1 btn-warning bi bi-person-plus-fill" href="{{route('HRD.karyawan.make', $item->id)}}"></a>
                             </td>
