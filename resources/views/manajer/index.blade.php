@@ -14,6 +14,9 @@
             <!-- Navbar -->
             @include('manajer.component.navbar')
             <!-- Navbar -->
+            <!-- Alert -->
+            @include('manajer.component.alert')
+            <!-- Alert -->
             <!-- Main Content -->
             @yield('content')
             <!-- Main Content -->

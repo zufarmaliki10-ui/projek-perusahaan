@@ -14,6 +14,9 @@
             <!-- Navbar -->
             @include('hrd.component.navbar')
             <!-- Navbar -->
+            <!-- Alert -->
+            @include('hrd.component.alert')
+            <!-- Alert -->
             <!-- Main Content -->
             @yield('content')
             <!-- Main Content -->

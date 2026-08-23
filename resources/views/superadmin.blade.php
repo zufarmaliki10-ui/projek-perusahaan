@@ -1,6 +1,18 @@
 @include('hrd.partials.head')
 
 <body>
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
+        {{session('success')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    @if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+        {{session('error')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <a class="btn btn-danger btn-sm m-2" href="{{route('logout')}}">Logout</a>
     <div class="col-md-8 mx-auto my-3">
         <h3>Tambah HRD / Manajer</h3>

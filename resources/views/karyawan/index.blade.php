@@ -8,6 +8,9 @@
     <!-- Navbar Section -->
     @include('karyawan.component.navbar')
     <!-- Navbar Section -->
+    <!-- Alert -->
+    @include('karyawan.component.alert')
+    <!-- Alert -->
     <!-- Main Content -->
     @yield('content')
     <!-- Main Content -->
