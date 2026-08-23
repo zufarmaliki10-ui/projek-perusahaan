@@ -84,6 +84,7 @@
                             <th>Jam Masuk</th>
                             <th>Status</th>
                             <th>Validasi</th>
+                            <th>Validator</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,15 +95,23 @@
                             <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
                             <td>{{$item->jam_masuk}}</td>
                             <td>
-                                <span class="badge text-bg-success">Hadir</span>
+                                <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'sakit',
+                                    'text-bg-danger' => $item->status == 'alfa',
+                                    'text-bg-success' => $item->status == 'hadir',
+                                    'text-bg-warning' => $item->status == 'izin',
+                                    ])>{{$item->status}}</span>
                             </td>
                             <td>
-                                <span class="badge text-bg-success">Validasi</span>
+                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'menunggu',
+                                    'text-bg-danger' => $item->status_validasi == 'ditolak',
+                                    'text-bg-success' => $item->status_validasi == 'disetujui',
+                                    ])>{{$item->status_validasi}}</span>
                             </td>
+                            <td>{{$item->validator}}</td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6">Belum ada karyawan absen</td>
+                            <td colspan="7">Belum ada karyawan absen</td>
                         </tr>
                         @endforelse
                     </tbody>

@@ -80,10 +80,17 @@
                             <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
                             <td>{{$item->jam_masuk}}</td>
                             <td>
-                                <span class="badge text-bg-success">Hadir</span>
+                                <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'sakit',
+                                    'text-bg-danger' => $item->status == 'alfa',
+                                    'text-bg-success' => $item->status == 'hadir',
+                                    'text-bg-warning' => $item->status == 'izin',
+                                    ])>{{$item->status}}</span>
                             </td>
                             <td>
-                                <span class="badge text-bg-success">Validasi</span>
+                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'menunggu',
+                                    'text-bg-danger' => $item->status_validasi == 'ditolak',
+                                    'text-bg-success' => $item->status_validasi == 'disetujui',
+                                    ])>{{$item->status_validasi}}</span>
                             </td>
                         </tr>
                         @empty

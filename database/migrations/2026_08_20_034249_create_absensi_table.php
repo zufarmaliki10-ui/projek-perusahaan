@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('status', ['hadir', 'izin', 'sakit', 'alfa'])->default('alfa');
             $table->text('keterangan')->nullable();
             $table->enum('status_validasi', ['menunggu', 'disetujui', 'ditolak'])->default('menunggu');
+            $table->string('validator', 100)->nullable();
             $table->timestamps();
         });
     }

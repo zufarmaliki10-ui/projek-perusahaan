@@ -17,6 +17,7 @@
                         <th>Jam Pulang</th>
                         <th>Status</th>
                         <th>Status Validasi</th>
+                        <th>Validator</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -29,11 +30,22 @@
                         <td>{{$item->jam_masuk}}</td>
                         <td>{{$item->jam_keluar}}</td>
                         <td>
-                            <span class="badge text-bg-success">{{$item->status}}</span>
+                            <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'sakit',
+                                'text-bg-danger' => $item->status == 'alfa',
+                                'text-bg-success' => $item->status == 'hadir',
+                                'text-bg-warning' => $item->status == 'izin',
+                                ])>{{$item->status}}</span>
                         </td>
-                        <td>{{$item->status_validasi}}</td>
                         <td>
-                            <a class="btn btn-success btn-sm" href="{{route('HRD.absensi.validasi', $item->id)}}">Validasi</a>
+                            <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'menunggu',
+                                'text-bg-danger' => $item->status_validasi == 'ditolak',
+                                'text-bg-success' => $item->status_validasi == 'disetujui',
+                                ])>{{$item->status_validasi}}</span>
+                        </td>
+                        <td>{{$item->validator}}</td>
+                        <td>
+                            <a class="btn btn-success btn-sm bi bi-check-circle" href="{{route('HRD.absensi.validasi', $item->id)}}"></a>
+                            <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('HRD.absensi.validasi', $item->id)}}"></a>
                         </td>
                     </tr>
                     @empty

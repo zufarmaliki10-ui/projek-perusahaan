@@ -20,17 +20,19 @@ class AbsensiController extends Controller
         return view('hrd.pages.absensi.update', compact('absensi'));
     }
 
-    public function update(Request $request, Absensi $absensi){
+    public function update(Request $request, Absensi $absensi)
+    {
         $request->validate([
             'status_validasi' => 'required|in:menunggu,disetujui,ditolak',
         ]);
 
-        if(!$absensi->jam_keluar || !$absensi->keterangan){
+        if (!$absensi->jam_keluar || !$absensi->keterangan) {
             return back()->with('error', 'karyawan belum mengisi form absensi');
         }
 
         $absensi->update([
             'status_validasi' => $request->status_validasi,
+            'validator' => auth()->user()->name,
         ]);
 
         return redirect()->route('HRD.absensi')->with('success', 'Absen karyawan berhasil divalidasi');

@@ -31,18 +31,6 @@
                             <span class="badge text-bg-success">Validasi</span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Heri</td>
-                        <td>Karyawan</td>
-                        <td>08.15</td>
-                        <td>
-                            <span class="badge text-bg-warning">Terlambat</span>
-                        </td>
-                        <td>
-                            <span class="badge text-bg-danger">Belum Validasi</span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
