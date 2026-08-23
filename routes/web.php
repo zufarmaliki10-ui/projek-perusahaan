@@ -103,6 +103,7 @@ Route::prefix('HRD')->as('HRD.')->middleware([CekHRD::class])->group(function ()
         Route::get('/', [HRDAbsensiController::class, 'index'])->name('absensi');
         Route::get('/update/{id}', [HRDAbsensiController::class, 'edit'])->name('absensi.validasi');
         Route::put('/update/{absensi}', [HRDAbsensiController::class, 'update'])->name('absensi.update');
+        Route::get('/show/{id}', [HRDAbsensiController::class, 'show'])->name('absensi.show');
     });
     Route::prefix('cuti')->group(function () {
         Route::get('/', [HRDCutiController::class, 'index'])->name('cuti');
@@ -128,6 +129,7 @@ Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group
         Route::get('/', [ManajerAbsensiController::class, 'index'])->name('absensi');
         Route::get('/update/{id}', [ManajerAbsensiController::class, 'edit'])->name('absensi.validasi');
         Route::put('/update/{absensi}', [ManajerAbsensiController::class, 'update'])->name('absensi.update');
+        Route::get('/rekap', [ManajerAbsensiController::class, 'rekap'])->name('absensi.rekap');
     });
     Route::prefix('cuti')->group(function () {
         Route::get('/', [ManajerCutiController::class, 'index'])->name('cuti');

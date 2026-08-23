@@ -6,7 +6,10 @@
     <div class="row mx-2 my-4">
         <!-- Data Perusahaan -->
         <div class="table-responsive">
-            <h5>Data Kehadiran Karyawan</h5>
+            <div class="d-flex justify-content-between my-3">
+                <h5>Data Kehadiran Karyawan</h5>
+                <a class="btn btn-primary btn-sm" href="{{route('manajer.absensi.rekap')}}">Rekap Absensi</a>
+            </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -45,7 +48,6 @@
                         <td>{{$item->validator}}</td>
                         <td>
                             <a class="btn btn-success btn-sm bi bi-check-circle" href="{{route('manajer.absensi.validasi', $item->id)}}"></a>
-                            <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('HRD.absensi.validasi', $item->id)}}"></a>
                         </td>
                     </tr>
                     @empty

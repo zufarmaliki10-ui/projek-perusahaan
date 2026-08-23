@@ -37,4 +37,10 @@ class AbsensiController extends Controller
 
         return redirect()->route('HRD.absensi')->with('success', 'Absen karyawan berhasil divalidasi');
     }
+
+    public function show($id)
+    {
+        $absensi = Absensi::with('karyawan.jabatan.departemen')->findOrFail($id);
+        return view('hrd.pages.absensi.show', compact('absensi'));
+    }
 }

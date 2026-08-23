@@ -37,4 +37,13 @@ class AbsensiController extends Controller
 
         return redirect()->route('manajer.absensi')->with('success', 'Absensi berhasil divalidasi');
     }
+
+    public function rekap(Request $request)
+    {
+        $absensi = collect();
+        if ($request->filled(['tahun', 'bulan'])) {
+            $absensi = Absensi::with('karyawan.jabatan.departemen')->whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)->get()->groupBy('id_karyawan');
+        }
+        return view('manajer.pages.absen.rekap', compact('absensi'));
+    }
 }
