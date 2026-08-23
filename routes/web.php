@@ -126,6 +126,8 @@ Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group
     Route::get('/', [ManajerDashboardController::class, 'index'])->name('dashboard');
     Route::prefix('absensi')->group(function () {
         Route::get('/', [ManajerAbsensiController::class, 'index'])->name('absensi');
+        Route::get('/update/{id}', [ManajerAbsensiController::class, 'edit'])->name('absensi.validasi');
+        Route::put('/update/{absensi}', [ManajerAbsensiController::class, 'update'])->name('absensi.update');
     });
     Route::prefix('cuti')->group(function () {
         Route::get('/', [ManajerCutiController::class, 'index'])->name('cuti');

@@ -4,11 +4,37 @@ namespace App\Http\Controllers\manajer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Absensi;
 
 class AbsensiController extends Controller
 {
     public function index()
     {
-        return view('manajer.pages.absen.absensi');
+        $absensi = Absensi::with('karyawan.jabatan')->latest()->get();
+        return view('manajer.pages.absen.absensi', compact('absensi'));
+    }
+
+    public function edit($id)
+    {
+        $absensi = Absensi::with('karyawan.jabatan')->find($id);
+        return view('manajer.pages.absen.update', compact('absensi'));
+    }
+
+    public function update(Request $request, Absensi $absensi)
+    {
+        $request->validate([
+            'status_validasi' => 'required|in:menunggu,disetujui,ditolak',
+        ]);
+
+        if (!$absensi->jam_keluar || !$absensi->keterangan) {
+            return back()->with('error', 'karyawan belum mengisi form absensi');
+        }
+
+        $absensi->update([
+            'status_validasi' => $request->status_validasi,
+            'validator' => auth()->user()->name,
+        ]);
+
+        return redirect()->route('manajer.absensi')->with('success', 'Absensi berhasil divalidasi');
     }
 }

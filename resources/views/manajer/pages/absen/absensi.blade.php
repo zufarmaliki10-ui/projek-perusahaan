@@ -14,23 +14,45 @@
                         <th>Nama Lengkap</th>
                         <th>Jabatan</th>
                         <th>Jam Masuk</th>
+                        <th>Jam Pulang</th>
                         <th>Status</th>
-                        <th>Validasi</th>
+                        <th>Status Validasi</th>
+                        <th>Validator</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($absensi as $item)
                     <tr>
-                        <td>1</td>
-                        <td>Heru</td>
-                        <td>Karyawan</td>
-                        <td>08.00</td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$item->karyawan->nama_lengkap}}</td>
+                        <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
+                        <td>{{$item->jam_masuk}}</td>
+                        <td>{{$item->jam_keluar}}</td>
                         <td>
-                            <span class="badge text-bg-success">Hadir</span>
+                            <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'sakit',
+                                'text-bg-danger' => $item->status == 'alfa',
+                                'text-bg-success' => $item->status == 'hadir',
+                                'text-bg-warning' => $item->status == 'izin',
+                                ])>{{$item->status}}</span>
                         </td>
                         <td>
-                            <span class="badge text-bg-success">Validasi</span>
+                            <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'menunggu',
+                                'text-bg-danger' => $item->status_validasi == 'ditolak',
+                                'text-bg-success' => $item->status_validasi == 'disetujui',
+                                ])>{{$item->status_validasi}}</span>
+                        </td>
+                        <td>{{$item->validator}}</td>
+                        <td>
+                            <a class="btn btn-success btn-sm bi bi-check-circle" href="{{route('manajer.absensi.validasi', $item->id)}}"></a>
+                            <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('HRD.absensi.validasi', $item->id)}}"></a>
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td colspan="8">Karyawan belum absen</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
