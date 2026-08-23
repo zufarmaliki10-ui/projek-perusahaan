@@ -18,7 +18,7 @@ class AbsensiController extends Controller
     {
         $absensi = Absensi::with('karyawan.jabatan')->find($id);
         if ($absensi->validator !== null) {
-            return redirect()->route('HRD.absensi')->with('error', 'Absensi sudah divalidasi');
+            return redirect()->route('manajer.absensi')->with('error', 'Absensi sudah divalidasi');
         }
         return view('manajer.pages.absen.update', compact('absensi'));
     }

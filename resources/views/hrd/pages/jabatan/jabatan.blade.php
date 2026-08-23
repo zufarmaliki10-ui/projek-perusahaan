@@ -28,8 +28,8 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nama_jabatan}}</td>
-                            <td>Rp {{$item->gaji_pokok}}</td>
-                            <td>Rp {{$item->tunjangan}}</td>
+                            <td>Rp {{number_format($item->gaji_pokok, 0, ',', '.')}}</td>
+                            <td>Rp {{number_format($item->tunjangan, 0, ',', '.')}}</td>
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.jabatan.edit', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}"></a>
                                 <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
