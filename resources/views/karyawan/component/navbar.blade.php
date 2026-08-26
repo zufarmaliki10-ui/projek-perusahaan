@@ -1,6 +1,8 @@
     <nav class="navbar navbar-expand-lg no-print">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold fs-3 text-warning" href="#">MyOffice</a>
+            <div class="img-fluid">
+                <img class="" src="{{asset('admin/hrd/img/logo_white_d.png')}}" alt="">
+            </div>
             <button
                 class="navbar-toggler"
                 type="button"

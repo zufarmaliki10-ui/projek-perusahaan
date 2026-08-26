@@ -21,6 +21,10 @@ nav {
     background-color: var(--jungle-teal);
 }
 
+nav img{
+    width: 120px !important;
+}
+
 nav .navbar-nav .nav-item .nav-link {
     color: whitesmoke;
 }

@@ -8,8 +8,8 @@
             </div>
             <!-- Toggle Btn -->
             <!-- Sidebar Logo -->
-            <div class="sidebar-logo">
-                <h3 class="my-3 text-warning fs-3 text-center">MyOffice</h3>
+            <div class="sidebar-logo justify-content-center py-1">
+                <img src="{{asset('admin/hrd/img/logo_white_d.png')}}" alt="logo">
             </div>
             <!-- Sidebar Logo -->
             <!-- Sidebar Navigation -->

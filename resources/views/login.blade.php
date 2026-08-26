@@ -13,26 +13,23 @@
 
     body {
         align-content: center;
-        background-color: var(--jungle-teal);
         font-family: sans-serif;
     }
 
     .login {
-        background-color: var(--muted-teal);
+        background-color: var(--jungle-teal);
         border: 2px solid black;
     }
 
     form {
-        margin: 0 auto;
-        height: 50vh;
         align-content: center;
-        padding: 10px;
+        padding: 5px;
     }
 
     .form-control {
         background-color: var(--mint-cream);
-        border: 3px solid var(--jungle-teal);
-        margin: 20px auto;
+        border: 3px solid var(--muted-teal);
+        margin: 10px auto;
         color: black;
         font-size: 13px;
     }
@@ -44,21 +41,22 @@
 
     .form-control:focus {
         background-color: var(--mint-cream);
-        border: 3px solid var(--jungle-teal);
-        margin: 20px auto;
+        border: 3px solid var(--muted-teal);
+        margin: 10px auto;
         color: black;
     }
 
     .btn {
-        background-color: var(--jungle-teal);
+        background-color: white;
         height: 3rem;
         font-size: 15px;
         border-radius: 15px;
-        color: white;
+        color: black;
     }
 
     .btn:hover {
-        background-color: var(--frozen-water);
+        background-color: var(--muted-teal);
+        border: 2px solid var(--frozen-water);
         color: black;
     }
 </style>
@@ -67,9 +65,9 @@
 
     <div class="col-xl-4 col-md-6 p-3 mx-auto align-content-center">
         <div class="login p-2 rounded rounded-5">
+            <img class="img-fluid mt-3 p-1" src="{{asset('admin/hrd/img/logo_white_d.png')}}" alt="logo">
             <form id="content" action="" method="post">
                 @csrf
-                <p class="text text-dark text-center">Masukkan Email & Password anda</p>
                 <input class="form form-control" type="text" name="email" id="" placeholder="Email">
                 <input class="form form-control mb-0" type="password" name="password" id="" placeholder="Password">
                 <div class="d-flex justify-content-center">
