@@ -4,14 +4,15 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Cuti;
 use App\Models\Karyawan;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $karyawan = Karyawan::first();
+        $karyawan = Karyawan::with(['cuti' => function ($query) {
+            $query->latest();
+        }])->get();
 
         // Validasi akun jika tidak terhubung ke data karyawan
         if (!$karyawan) {
@@ -22,29 +23,37 @@ class DashboardController extends Controller
         }
 
         // Fetch & Mapping data cuti untuk tabel
-        $cuti = Cuti::where('id_karyawan', $karyawan->id)
-            ->latest()
-            ->get()
-            ->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'id_karyawan' => $item->id_karyawan,
-                    'tanggal_mulai' => $item->tanggal_mulai ? $item->tanggal_mulai->locale('id')->translatedFormat('d F Y') : null,
-                    'tanggal_selesai' => $item->tanggal_selesai ? $item->tanggal_selesai->locale('id')->translatedFormat('d F Y') : null,
-                    'alasan' => $item->alasan,
-                    'status' => $item->status,
-                    'disetujui_oleh' => $item->disetujui_oleh,
-                    'created_at' => $item->created_at
-                ];
-            });
+        $dashboard = $karyawan->map(function ($karyawanItem) {
+            return [
+                'id_user' => $karyawanItem->id_user,
+                'id_jabatan' => $karyawanItem->id_jabatan,
+                'nip' => $karyawanItem->nip,
+                'nama_lengkap' => $karyawanItem->nama_lengkap,
+                'jenis_kelamin' => $karyawanItem->jenis_kelamin,
+                'bank' => $karyawanItem->bank,
+                'nomer_rekening' => $karyawanItem->nomer_rekening,
+                'tanggal_masuk' => $karyawanItem->tanggal_masuk,
+                'no_telp' => $karyawanItem->no_telp,
+                'alamat' => $karyawanItem->alamat,
+                'status' => $karyawanItem->status,
+                'cuti' => $karyawanItem->cuti->map(function ($cutiItem) {
+                    return [
+                        'id' => $cutiItem->id,
+                        'id_karyawan' => $cutiItem->id_karyawan,
+                        'tanggal_mulai' => $cutiItem->tanggal_mulai->locale('id')->translatedFormat('d F Y'),
+                        'tanggal_selesai' => $cutiItem->tanggal_selesai->locale('id')->translatedFormat('d F Y'),
+                        'alasan' => $cutiItem->alasan,
+                        'status' => $cutiItem->status,
+                        'disetujui_oleh' => $cutiItem->disetujui_oleh,
+                    ];
+                }),
+            ];
+        });
 
         return response()->json([
             'status' => 'success',
             'message' => 'Data berhasil diambil',
-            'data' => [
-                'karyawan' => $karyawan,
-                'cuti' => $cuti,
-            ]
+            'data' => $dashboard
         ], 200);
     }
 }
