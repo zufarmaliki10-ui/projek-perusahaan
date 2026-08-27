@@ -28,23 +28,23 @@
                         <a class="nav-link active" aria-current="page" href="{{route('karyawan.gaji')}}">Gaji</a>
                     </li>
                 </ul>
-            </div>
-            <div class="dropdown me-4">
-                <a
-                    class="dropdown-toggle text-light text-decoration-none"
-                    data-bs-toggle="dropdown"
-                    href=""
-                    aria-expanded="">{{ auth()->user()->name }}</a>
+                <div class="dropdown ms-lg-auto me-lg-4">
+                    <a
+                        class="dropdown-toggle text-light text-decoration-none"
+                        data-bs-toggle="dropdown"
+                        href=""
+                        aria-expanded="">{{ auth()->user()->name }}</a>
 
-                <ul class="dropdown-menu">
-                    <li class="my-2 p-2 menu">
-                        <a href="">Settings</a>
-                    </li>
-                    <li class="my-2 p-2 menu">
-                        <a href="{{route('logout')}}">Logout</a>
-                    </li>
+                    <ul class="dropdown-menu">
+                        <li class="my-2 p-2 menu">
+                            <a href="">Settings</a>
+                        </li>
+                        <li class="my-2 p-2 menu">
+                            <a href="{{route('logout')}}">Logout</a>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

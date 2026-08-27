@@ -12,35 +12,64 @@
     </div>
     <!-- Selamat Datang -->
     <!-- Profil -->
-    <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-stretch">
+
+        <!-- Foto -->
         <div
-            class="profil overflow-hidden my-auto mx-2 rounded-3"
+            class="profil overflow-hidden m-2 rounded-3"
             style="border: 1px solid black">
-            <img class="img-fluid" src="{{asset('visitor/img/profil.jpg')}}" alt="Profil Karyawan" />
+
+            <img
+                class="img-fluid"
+                src="{{ asset('visitor/img/profil.jpg') }}"
+                alt="Profil Karyawan">
+
         </div>
+
+        <!-- Data Diri -->
         <div
             class="identitas p-2 m-2 rounded-3"
             style="border: 1px solid black">
+
             <h5 class="text-center mb-4">Data Diri Karyawan</h5>
-            <p>Nama Lengkap : {{$karyawan->nama_lengkap}}</p>
-            <p>Jenis Kelamin : {{$karyawan->jenis_kelamin}}</p>
-            <p>No. Telepon : {{$karyawan->no_telp}}</p>
-            <p>Alamat : {{$karyawan->alamat}}</p>
+
+            <p>Nama Lengkap : {{ $karyawan->nama_lengkap }}</p>
+            <p>Jenis Kelamin : {{ $karyawan->jenis_kelamin }}</p>
+            <p>No. Telepon : {{ $karyawan->no_telp }}</p>
+            <p>Alamat : {{ $karyawan->alamat }}</p>
+
         </div>
+
+        <!-- Status -->
         <div
             class="identitas p-2 m-2 rounded-3"
             style="border: 1px solid black">
+
             <h5 class="text-center mb-4">Status Bekerja</h5>
-            <p>NIP : {{$karyawan->nip}}</p>
-            <p>Jabatan : {{$karyawan->jabatan->nama_jabatan}}</p>
-            <p>Status : <span class="badge {{ $karyawan->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$karyawan->status}}</span></p>
-            <p>Tanggal Masuk : {{$karyawan->tanggal_masuk}}</p>
+
+            <p>NIP : {{ $karyawan->nip }}</p>
+            <p>Jabatan : {{ $karyawan->jabatan->nama_jabatan }}</p>
+
+            <p>
+                Status :
+                <span class="badge {{ $karyawan->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger' }}">
+                    {{ $karyawan->status }}
+                </span>
+            </p>
+
+            <p>Tanggal Masuk : {{ $karyawan->tanggal_masuk }}</p>
+
         </div>
+
+        <!-- Chart -->
         <div
             class="chart-container p-2 m-2 rounded-3"
             style="border: 1px solid black">
+
             <canvas id="myChart"></canvas>
+
         </div>
+
     </div>
     <!-- Profil -->
     <!-- Data Cuti -->
@@ -79,9 +108,9 @@
                     </td>
                 </tr>
                 @empty
-<tr>
-    <td colspan="6">Belum ada pengajuan cuti</td>
-</tr>
+                <tr>
+                    <td colspan="6">Belum ada pengajuan cuti</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>
