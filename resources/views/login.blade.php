@@ -47,7 +47,7 @@
     }
 
     .btn {
-        background-color: white;
+        background-color: #ffc107;
         height: 3rem;
         font-size: 15px;
         border-radius: 15px;
@@ -63,7 +63,7 @@
 
 <body>
 
-    <div class="col-xl-4 col-md-6 p-3 mx-auto align-content-center">
+    <div class="col-md-4 col-sm-8 p-3 mx-auto align-content-center">
         <div class="login p-2 rounded rounded-5">
             <img class="img-fluid mt-3 p-1" src="{{asset('admin/hrd/img/logo_white_d.png')}}" alt="logo">
             <form id="content" action="" method="post">

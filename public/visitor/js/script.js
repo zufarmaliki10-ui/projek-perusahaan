@@ -2,19 +2,21 @@
 const ctx = document.getElementById("myChart");
 
 if (ctx) {
+    const labels = window.absensiData.map((item) => item.status);
+    const data = window.absensiData.map((item) => item.jumlah);
     new Chart(ctx, {
         type: "doughnut",
         data: {
-            labels: ["Hadir", "Izin", "Sakit", "Alfa"],
+            labels: labels,
             datasets: [
                 {
-                    label: "",
-                    data: [12, 19, 3, 5],
+                    label: "Akumulasi Absensi Karyawan",
+                    data: data,
                     backgroundColor: [
-                        "#008000",
-                        "#ff4500",
-                        "#808080",
-                        "#ff0000",
+                        "#6b9080ff",
+                        "#a4c3b2ff",
+                        "#cce3deff",
+                        "#eaf4f4ff",
                     ],
                 },
             ],
@@ -28,7 +30,7 @@ if (ctx) {
                 },
                 title: {
                     display: true,
-                    text: "Presentasi Karyawan",
+                    text: "Akumulasi Absensi Karyawan",
                 },
             },
         },

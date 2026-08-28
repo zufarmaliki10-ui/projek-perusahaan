@@ -117,4 +117,7 @@
     </div>
     <!-- Data Cuti -->
 </section>
+<script>
+    window.absensiData = @json($absensi);
+</script>
 @endsection
