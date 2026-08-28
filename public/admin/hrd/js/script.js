@@ -148,3 +148,11 @@ function alertConfirm(event, form, pesan) {
 
     return false;
 }
+
+setTimeout(() => {
+    const alerts = document.querySelectorAll(".alert");
+
+    alerts.forEach((alert) => {
+        alert.remove();
+    });
+}, 1000);

@@ -16,6 +16,10 @@ body {
     flex-direction: column;
 }
 
+.alert.fade {
+    transition: opacity 0.5s ease-in-out !important;
+}
+
 /* Navbar */
 nav {
     background-color: var(--jungle-teal);

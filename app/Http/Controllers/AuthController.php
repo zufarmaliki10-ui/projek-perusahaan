@@ -32,23 +32,23 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role === 'superadmin') {
-                return redirect()->route('superadmin.dashboard')->with(['success' => 'Selamat Datang,' . Auth::user()->name]);
+                return redirect()->route('superadmin.dashboard')->with(['success' => 'Login berhasil. Selamat Datang, ' . Auth::user()->name]);
             }
 
             if (Auth::user()->role === 'karyawan') {
-                return redirect()->route('karyawan.dashboard')->with(['success' => 'Selamat Datang,' . Auth::user()->name]);
+                return redirect()->route('karyawan.dashboard')->with(['success' => 'Login berhasil. Selamat Datang, ' . Auth::user()->name]);
             }
 
             if (Auth::user()->role === 'hrd') {
-                return redirect()->route('HRD.dashboard')->with(['success' => 'Selamat Datang,' . Auth::user()->name]);
+                return redirect()->route('HRD.dashboard')->with(['success' => 'Login berhasil. Selamat Datang, ' . Auth::user()->name]);
             }
 
             if (Auth::user()->role === 'manajer') {
-                return redirect()->route('manajer.dashboard')->with(['success' => 'Selamat Datang,' . Auth::user()->name]);
+                return redirect()->route('manajer.dashboard')->with(['success' => 'Login berhasil. Selamat Datang, ' . Auth::user()->name]);
             }
         }
 
-        return redirect()->back()->with('error', 'Login gagal, Silahkan coba lagi!');
+        return redirect()->back()->with('error', 'Email / Password yang anda masukkan salah. Silahkan coba lagi!');
     }
 
     public function logout(Request $request)

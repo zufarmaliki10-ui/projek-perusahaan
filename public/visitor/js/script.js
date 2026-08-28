@@ -101,3 +101,11 @@ if (kondisi && keteranganIzin) {
         }
     });
 }
+
+setTimeout(() => {
+    const alerts = document.querySelectorAll(".alert");
+
+    alerts.forEach((alert) => {
+        alert.remove();
+    });
+}, 1000);

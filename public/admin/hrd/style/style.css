@@ -109,6 +109,10 @@ a.sidebar-link:hover {
     margin-left: 50px;
 }
 
+.alert.fade {
+    transition: opacity 3s ease-in-out !important;
+}
+
 /* Navbar */
 .navbar {
     background-color: var(--muted-teal);
