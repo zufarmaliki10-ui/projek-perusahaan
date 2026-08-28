@@ -19,6 +19,7 @@ class AbsenController extends Controller
 
         $request->validate([
             'status' => 'required|in:hadir,izin,sakit,alfa',
+            'keterangan' => 'nullable|string'
         ]);
 
         $absensi = Absensi::where('id_karyawan', $karyawan->id)->whereDate('tanggal', today())->first();
@@ -32,6 +33,7 @@ class AbsenController extends Controller
             'tanggal' => now()->toDateString(),
             'jam_masuk' => now()->toTimeString(),
             'status' => $request->status,
+            'keterangan' => $request->keterangan,
         ]);
 
         return redirect()->route('karyawan.absensi')->with('success', 'Anda telah berhasil absen masuk');

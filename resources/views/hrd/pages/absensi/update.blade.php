@@ -7,7 +7,7 @@
         <a class="btn btn-primary btn-sm bi bi-arrow-left mb-2" href="{{route('HRD.absensi')}}"><span class="mx-1">Kembali</span></a>
         <div class="card p-2 mx-auto my-3">
             <h4>Form Validasi Absen Karyawan</h4>
-            @if ($absensi->keterangan && $absensi->jam_keluar)
+            @if ($absensi->keterangan)
             <form action="{{route('HRD.absensi.update', $absensi->id)}}" method="post">
                 @csrf
                 @method('PUT')

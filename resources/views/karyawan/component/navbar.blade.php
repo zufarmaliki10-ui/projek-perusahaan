@@ -29,14 +29,14 @@
                     </li>
                 </ul>
                 <div class="d-flex ms-lg-auto me-lg-4">
-                    <div>
-                        <a href="{{route('logout')}}" class="btn btn-danger btn-sm bi bi-door-open-fill me-2"></a>
-                    </div>
                     <a
-                        class="dropdown-toggle text-light text-decoration-none align-content-center"
+                        class="dropdown-toggle text-light text-decoration-none align-content-center me-2"
                         data-bs-toggle="dropdown"
                         href=""
                         aria-expanded="">{{ auth()->user()->name }}</a>
+                    <div>
+                        <a href="{{route('logout')}}" class="btn btn-danger btn-sm bi bi-door-open-fill"></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -87,3 +87,17 @@ function cekJamPulang() {
 
 cekJamPulang();
 setInterval(cekJamPulang, 1000);
+
+// Cek absensi izin / sakit
+const kondisi = document.getElementById("status");
+const keteranganIzin = document.getElementById("keteranganIzin");
+
+if (kondisi && keteranganIzin) {
+    kondisi.addEventListener("change", function () {
+        if (["izin", "sakit"].includes(this.value)) {
+            keteranganIzin.classList.remove("d-none");
+        } else {
+            keteranganIzin.classList.add("d-none");
+        }
+    });
+}

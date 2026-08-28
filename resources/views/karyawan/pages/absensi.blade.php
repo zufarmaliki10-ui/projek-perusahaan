@@ -13,8 +13,11 @@
                 <option value="hadir">Hadir</option>
                 <option value="izin">Izin</option>
                 <option value="sakit">Sakit</option>
-                <option value="alfa">Alfa</option>
             </select>
+            <div id="keteranganIzin" class="d-none">
+                <label class="form-label" for="keterangan">Keterangan: </label>
+                <textarea class="form-control" name="keterangan" id="keterangan" placeholder="berikan keterangan izin anda"></textarea>
+            </div>
             <div class="text-center my-2">
                 <p class="clock-in m-0 text-danger">Harap absen masuk sebelum jam 08.00</p>
             </div>

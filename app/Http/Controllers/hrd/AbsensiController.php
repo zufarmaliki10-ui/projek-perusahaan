@@ -29,7 +29,7 @@ class AbsensiController extends Controller
             'status_validasi' => 'required|in:menunggu,disetujui,ditolak',
         ]);
 
-        if (!$absensi->jam_keluar || !$absensi->keterangan) {
+        if (!$absensi->keterangan) {
             return back()->with('error', 'karyawan belum mengisi form absensi');
         }
 
