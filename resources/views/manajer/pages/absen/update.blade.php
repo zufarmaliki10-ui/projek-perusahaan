@@ -33,9 +33,9 @@
                     name="status_validasi"
                     id="status_validasi"
                     aria-label="Default select example">
-                    <option value="menunggu" {{$absensi->status_validasi == 'menunggu' ? 'selected' : ''}}>Menunggu</option>
-                    <option value="disetujui" {{$absensi->status_validasi == 'disetujui' ? 'selected' : ''}}>Disetujui</option>
-                    <option value="ditolak" {{$absensi->status_validasi == 'ditolak' ? 'selected' : ''}}>Ditolak</option>
+                    <option value="Menunggu" {{$absensi->status_validasi == 'Menunggu' ? 'selected' : ''}}>Menunggu</option>
+                    <option value="Disetujui" {{$absensi->status_validasi == 'Disetujui' ? 'selected' : ''}}>Disetujui</option>
+                    <option value="Ditolak" {{$absensi->status_validasi == 'Ditolak' ? 'selected' : ''}}>Ditolak</option>
                 </select>
                 <button type="submit" class="btn btn-success d-block w-50 mx-auto my-3">Validasi</button>
             </form>

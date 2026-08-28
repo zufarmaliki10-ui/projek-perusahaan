@@ -49,12 +49,12 @@
                     name="status"
                     id="status"
                     aria-label="Default select example">
-                    <option value="menunggu" {{$cuti->status == 'menunggu' ? 'selected' : ''}}>Menunggu</option>
-                    <option value="disetujui" {{$cuti->status == 'disetujui' ? 'selected' : ''}}>Disetujui</option>
-                    <option value="ditolak" {{$cuti->status == 'ditolak' ? 'selected' : ''}}>Ditolak</option>
+                    <option value="Menunggu" {{$cuti->status == 'Menunggu' ? 'selected' : ''}}>Menunggu</option>
+                    <option value="Disetujui" {{$cuti->status == 'Disetujui' ? 'selected' : ''}}>Disetujui</option>
+                    <option value="Ditolak" {{$cuti->status == 'Ditolak' ? 'selected' : ''}}>Ditolak</option>
                 </select>
                 <label class="form-label mt-2" for="disetujui_oleh">Disetujui Oleh</label>
-                <input class="form-control" type="text" name="disetujui_oleh" id="disetujui_oleh" value="{{auth()->user()->name}}" readonly/>
+                <input class="form-control" type="text" name="disetujui_oleh" id="disetujui_oleh" value="{{auth()->user()->name}}" readonly />
                 <div class="mt-3 d-flex gap-2 justify-content-end">
                     <button type="submit" class="btn btn-sm btn-success">Konfirmasi</button>
                 </div>
