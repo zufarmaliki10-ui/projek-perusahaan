@@ -11,19 +11,34 @@ class GajiController extends Controller
 {
     public function index()
     {
-        $gaji = Gaji::with([
-            'karyawan.jabatan.departemen'
-        ])->get();
+        // 1. Ambil data karyawan dari user yang login
+        $user = auth()->user();
+        $karyawan = $user ? $user->karyawan : null;
 
-        //validasi akun jika tidak terhubung ke data gaji
-        if (!$gaji) {
+        // Validasi jika akun user belum terhubung dengan data karyawan
+        if (!$karyawan) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data gaji tidak ditemukan'
+                'message' => 'Data karyawan tidak ditemukan untuk akun ini'
             ], 404);
         }
 
-        //Fetch & Mapping data gaji untuk tabel
+        // 2. Query data gaji HANYA milik karyawan yang login
+        $gaji = Gaji::where('id_karyawan', $karyawan->id)
+            ->latest()
+            ->get();
+
+        // 3. Jika belum ada data gaji, kembalikan status 200 dengan data array kosong []
+        // Ini memastikan Flutter membaca response dengan sukses dan BottomNav TETAP MUNCUL
+        if ($gaji->isEmpty()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Belum ada data gaji untuk akun ini',
+                'data' => []
+            ], 200);
+        }
+
+        // 4. Fetch & Mapping data gaji
         $dataGaji = $gaji->map(function ($gajiItem) {
             return [
                 'id_karyawan' => $gajiItem->id_karyawan,
@@ -33,7 +48,10 @@ class GajiController extends Controller
                 'tunjangan' => $gajiItem->tunjangan,
                 'lembur' => $gajiItem->lembur,
                 'total_gaji' => $gajiItem->total_gaji,
-                'tanggal_bayar' => $gajiItem->tanggal_bayar->locale('id')->translatedFormat('d F Y'),
+                // Pengecekan null-safety pada tanggal_bayar agar tidak crash jika bernilai NULL
+                'tanggal_bayar' => $gajiItem->tanggal_bayar
+                    ? $gajiItem->tanggal_bayar->locale('id')->translatedFormat('d F Y')
+                    : null,
                 'nama_hrd' => $gajiItem->nama_hrd,
             ];
         });
