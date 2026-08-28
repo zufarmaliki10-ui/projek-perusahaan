@@ -23,7 +23,7 @@ class CutiController extends Controller
     public function update(Request $request, Cuti $cuti)
     {
         $request->validate([
-            'status' => 'required|in:menunggu,disetujui,ditolak',
+            'status' => 'required|in:Menunggu,Disetujui,Ditolak',
             'disetujui_oleh' => 'required|string',
         ]);
 

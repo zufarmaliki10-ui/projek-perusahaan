@@ -52,7 +52,7 @@
 
             <p>
                 Status :
-                <span class="badge {{ $karyawan->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger' }}">
+                <span class="badge {{ $karyawan->status == 'Aktif' ? 'text-bg-success' : 'text-bg-danger' }}">
                     {{ $karyawan->status }}
                 </span>
             </p>
@@ -94,13 +94,13 @@
                     <td>{{$item->tanggal_mulai->locale('id')->translatedFormat('d F Y')}}</td>
                     <td>{{$item->tanggal_selesai->locale('id')->translatedFormat('d F Y')}}</td>
                     <td>
-                        <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'menunggu',
-                            'text-bg-danger' => $item->status == 'ditolak',
-                            'text-bg-success' => $item->status == 'disetujui',
+                        <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'Menunggu',
+                            'text-bg-danger' => $item->status == 'Ditolak',
+                            'text-bg-success' => $item->status == 'Disetujui',
                             ])>{{$item->status}}</span>
                     </td>
                     <td>
-                        @if ($item->status == 'menunggu')
+                        @if ($item->status == 'Menunggu')
                         <button class="btn btn-secondary btn-sm" disabled>Menunggu Persetujuan</button>
                         @else
                         <a class="btn btn-primary btn-sm" href="{{route('karyawan.cuti.show', $item->id)}}">Lihat Surat Cuti</a>

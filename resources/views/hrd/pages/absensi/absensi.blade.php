@@ -44,9 +44,6 @@
                         </td>
                         <td>{{$item->validator}}</td>
                         <td>
-                            @if ($item->validator)
-
-                            @endif
                             <a class="btn btn-success btn-sm bi bi-check-circle" href="{{route('HRD.absensi.validasi', $item->id)}}"></a>
                             <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('HRD.absensi.show', $item->id)}}"></a>
                         </td>
