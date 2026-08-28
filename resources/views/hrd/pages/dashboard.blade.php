@@ -144,10 +144,10 @@
                             <td>{{$item->karyawan->nama_lengkap}}</td>
                             <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
                             <td>
-                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'Menunggu',
-                                    'text-bg-danger' => $item->status_validasi == 'Ditolak',
-                                    'text-bg-success' => $item->status_validasi == 'Disetujui',
-                                    ])>{{$item->status_validasi}}</span>
+                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'Menunggu',
+                                    'text-bg-danger' => $item->status == 'Ditolak',
+                                    'text-bg-success' => $item->status == 'Disetujui',
+                                    ])>{{$item->status}}</span>
                             </td>
                             <td>{{$item->disetujui_oleh}}</td>
                             <td>

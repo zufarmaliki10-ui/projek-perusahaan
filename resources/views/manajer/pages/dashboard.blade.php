@@ -80,16 +80,16 @@
                             <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
                             <td>{{$item->jam_masuk}}</td>
                             <td>
-                                <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'sakit',
-                                    'text-bg-danger' => $item->status == 'alfa',
-                                    'text-bg-success' => $item->status == 'hadir',
-                                    'text-bg-warning' => $item->status == 'izin',
+                                <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'Sakit',
+                                    'text-bg-danger' => $item->status == 'Alfa',
+                                    'text-bg-success' => $item->status == 'Hadir',
+                                    'text-bg-warning' => $item->status == 'Izin',
                                     ])>{{$item->status}}</span>
                             </td>
                             <td>
-                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'menunggu',
-                                    'text-bg-danger' => $item->status_validasi == 'ditolak',
-                                    'text-bg-success' => $item->status_validasi == 'disetujui',
+                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'Menunggu',
+                                    'text-bg-danger' => $item->status_validasi == 'Ditolak',
+                                    'text-bg-success' => $item->status_validasi == 'Disetujui',
                                     ])>{{$item->status_validasi}}</span>
                             </td>
                         </tr>
@@ -128,7 +128,10 @@
                             <td>{{$item->karyawan->nama_lengkap}}</td>
                             <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
                             <td>
-                                <span class="badge text-bg-success">{{$item->status}}</span>
+                                <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'Menunggu',
+                                    'text-bg-danger' => $item->status == 'Ditolak',
+                                    'text-bg-success' => $item->status == 'Disetujui',
+                                    ])>{{$item->status}}</span>
                             </td>
                             <td>{{$item->disetujui_oleh}}</td>
                             <td>
