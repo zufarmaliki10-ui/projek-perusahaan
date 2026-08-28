@@ -26,7 +26,7 @@ class AbsensiController extends Controller
     public function update(Request $request, Absensi $absensi)
     {
         $request->validate([
-            'status_validasi' => 'required|in:menunggu,disetujui,ditolak',
+            'status_validasi' => 'required|in:Menunggu,Disetujui,Ditolak',
         ]);
 
         if (!$absensi->keterangan) {
