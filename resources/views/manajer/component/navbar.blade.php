@@ -14,9 +14,6 @@
             </div>
         </div>
         <div class="profil d-flex col-md-2 justify-content-evenly">
-            <button class="toggler-btn" type="button">
-                <i class="bi bi-bell"></i>
-            </button>
             <div class="align-content-center text-dark">
                 <h6 class="m-0">
                     <strong>{{auth()->user()->name}}</strong>
