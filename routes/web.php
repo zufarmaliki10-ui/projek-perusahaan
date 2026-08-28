@@ -6,6 +6,7 @@ use App\Http\Controllers\karyawan\DashboardController as KaryawanDashboardContro
 use App\Http\Controllers\karyawan\AbsenController as KaryawanAbsenController;
 use App\Http\Controllers\karyawan\CutiController as KaryawanCutiController;
 use App\Http\Controllers\karyawan\GajiController as KaryawanGajiController;
+use App\Http\Controllers\karyawan\SettingsController as KaryawanSettingsController;
 use App\Http\Controllers\hrd\DashboardController as HRDDashboardController;
 use App\Http\Controllers\hrd\KaryawanController as HRDKaryawanController;
 use App\Http\Controllers\hrd\DepartemenController as HRDDepartemenController;
@@ -59,6 +60,10 @@ Route::prefix('karyawan')->as('karyawan.')->middleware([CekKaryawan::class])->gr
         Route::get('/', [KaryawanGajiController::class, 'index'])->name('gaji');
         Route::get('/show/{gaji}', [KaryawanGajiController::class, 'show'])->name('gaji.show');
         Route::get('/download/{gaji}', [KaryawanGajiController::class, 'download'])->name('gaji.download');
+    });
+    Route::prefix('settings')->group(function () {
+        Route::get('/', [KaryawanSettingsController::class, 'index'])->name('settings');
+        Route::put('/update', [KaryawanSettingsController::class, 'update'])->name('settings.update');
     });
 });
 
