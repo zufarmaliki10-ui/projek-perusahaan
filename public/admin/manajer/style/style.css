@@ -71,7 +71,7 @@ a {
 
 a.sidebar-link {
     padding: 0.5rem 1rem;
-    color: black;
+    color: white;
     position: relative;
     transition: all 0.35s;
     display: flex;
@@ -81,6 +81,12 @@ a.sidebar-link {
 
 a.sidebar-link:hover {
     background-color: var(--frozen-water);
+    color: black;
+}
+
+a.sidebar-link.active {
+    background-color: var(--frozen-water);
+    color: black;
 }
 
 /* Main Content */

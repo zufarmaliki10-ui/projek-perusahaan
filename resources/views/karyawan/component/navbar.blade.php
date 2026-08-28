@@ -36,6 +36,7 @@
                         aria-expanded="">{{ auth()->user()->name }}</a>
                     <div>
                         <a href="{{route('logout')}}" class="btn btn-danger btn-sm bi bi-door-open-fill"></a>
+                        <a href="" class="btn btn-secondary btn-sm bi bi-gear-fill"></a>
                     </div>
                 </div>
             </div>
