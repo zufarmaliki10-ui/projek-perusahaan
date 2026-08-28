@@ -33,13 +33,13 @@
                         <td>{{$item->tanggal_mulai->locale('id')->translatedFormat('d F Y')}}</td>
                         <td>{{$item->tanggal_selesai->locale('id')->translatedFormat('d F Y')}}</td>
                         <td>
-                            <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'menunggu',
-                                'text-bg-danger' => $item->status == 'ditolak',
-                                'text-bg-success' => $item->status == 'disetujui',
+                            <span @class([ 'badge' , 'text-bg-warning'=> $item->status == 'Menunggu',
+                                'text-bg-danger' => $item->status == 'Ditolak',
+                                'text-bg-success' => $item->status == 'Disetujui',
                                 ])>{{$item->status}}</span>
                         </td>
                         <td>
-                            @if ($item->status == 'menunggu')
+                            @if ($item->status == 'Menunggu')
                             <a class="btn btn-warning btn-sm" href="{{route('manajer.cuti.validasi', $item->id)}}">Lihat Pengajuan</a>
                             @else
                             <a class="btn btn-primary btn-sm" href="{{route('manajer.cuti.show', $item->id)}}">Lihat Surat Cuti</a>
