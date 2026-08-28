@@ -41,7 +41,7 @@ class KaryawanController extends Controller
             'tanggal_masuk' => 'required|date',
             'no_telp' => 'required|string|max:20',
             'alamat' => 'required|string',
-            'status' => 'required|in:aktif,non-aktif'
+            'status' => 'required|in:Aktif,Non-Aktif'
         ]);
 
         Karyawan::create([
@@ -77,7 +77,7 @@ class KaryawanController extends Controller
             'tanggal_masuk' => 'required|date',
             'no_telp' => 'required|string|max:20',
             'alamat' => 'required|string',
-            'status' => 'required|in:aktif,non-aktif'
+            'status' => 'required|in:Aktif,Non-Aktif'
         ]);
 
         $karyawan->update([

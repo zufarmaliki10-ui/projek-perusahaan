@@ -12,8 +12,8 @@
         <input class="form-control" type="text" name="nip" id="nip">
         <label class="form-label mt-2" for="jenis_kelamin">Jenis Kelamin</label>
         <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
-            <option value="laki-laki">Laki - Laki</option>
-            <option value="perempuan">Perempuan</option>
+            <option value="Laki-Laki">Laki - Laki</option>
+            <option value="Perempuan">Perempuan</option>
         </select>
         <label class="form-label mt-2" for="no_telp">No. Telp</label>
         <input class="form-control" type="text" name="no_telp" id="no_telp">
@@ -38,8 +38,8 @@
         <input class="form-control" type="date" name="tanggal_masuk" id="tanggal_masuk">
         <label class="form-label mt-2" for="status">Status</label>
         <select class="form-select" name="status" id="status">
-            <option value="aktif">Aktif</option>
-            <option value="nonaktif">Non-Aktif</option>
+            <option value="Aktif">Aktif</option>
+            <option value="Non-Aktif">Non-Aktif</option>
         </select>
         <div class="my-3 justify-content-center d-flex">
             <button class="btn btn-primary w-50" type="submit">Tambah Karyawan</button>

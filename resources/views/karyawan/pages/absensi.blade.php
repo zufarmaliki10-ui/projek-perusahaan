@@ -22,7 +22,7 @@
                 <p class="clock-in m-0 text-danger">Harap absen masuk sebelum jam 08.00</p>
             </div>
             <div class="d-flex justify-content-center gap-3">
-                <button type="submit" class="btn btn-primary btn-sm">Masuk</button>
+                <button type="submit" class="btn btn-primary btn-sm">Konfirmasi</button>
             </div>
         </form>
     </div>
@@ -41,7 +41,7 @@
                 <p class="clock-out m-0 text-danger">Absen keluar pada pukul 17.00, jangan lupa untuk mengisi form keterangan</p>
             </div>
             <div class="d-flex justify-content-center gap-3">
-                <button type="submit" class="btn btn-primary btn-sm">Pulang</button>
+                <button type="submit" class="btn btn-primary btn-sm">Konfirmasi</button>
             </div>
         </form>
     </div>

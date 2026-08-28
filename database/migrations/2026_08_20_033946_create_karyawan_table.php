@@ -17,13 +17,13 @@ return new class extends Migration
             $table->foreignId('id_jabatan')->constrained('jabatan')->onDelete('cascade');
             $table->string('nip');
             $table->string('nama_lengkap', 255);
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->string('bank', 100);
             $table->string('nomer_rekening', 100);
             $table->date('tanggal_masuk');
             $table->string('no_telp');
             $table->text('alamat');
-            $table->enum('status', ['aktif', 'non-aktif'])->default('aktif');
+            $table->enum('status', ['Aktif', 'Non-Aktif'])->default('Aktif');
             $table->timestamps();
         });
     }
