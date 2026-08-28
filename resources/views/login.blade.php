@@ -62,13 +62,13 @@
 </style>
 
 <body>
-
+    @include('hrd.component.alert')
     <div class="col-md-4 col-sm-8 p-3 mx-auto align-content-center">
         <div class="login p-2 rounded rounded-5">
             <img class="img-fluid mt-3 p-1" src="{{asset('admin/hrd/img/logo_white_d.png')}}" alt="logo">
             <form id="content" action="" method="post">
                 @csrf
-                <input class="form form-control" type="text" name="email" id="" placeholder="Email">
+                <input class="form form-control" type="email" name="email" id="" placeholder="Email">
                 <input class="form form-control mb-0" type="password" name="password" id="" placeholder="Password">
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn w-50 mt-3 bi bi-box-arrow-in-right"><span class="mx-2">Sign In</span></button>

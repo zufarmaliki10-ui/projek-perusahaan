@@ -28,22 +28,15 @@
                         <a class="nav-link active" aria-current="page" href="{{route('karyawan.gaji')}}">Gaji</a>
                     </li>
                 </ul>
-                <div class="dropdown ms-lg-auto me-lg-4">
+                <div class="d-flex ms-lg-auto me-lg-4">
+                    <div>
+                        <a href="{{route('logout')}}" class="btn btn-danger btn-sm bi bi-door-open-fill me-2"></a>
+                    </div>
                     <a
-                        class="dropdown-toggle text-light text-decoration-none"
+                        class="dropdown-toggle text-light text-decoration-none align-content-center"
                         data-bs-toggle="dropdown"
                         href=""
                         aria-expanded="">{{ auth()->user()->name }}</a>
-
-                    <ul class="dropdown-menu">
-                        <li class="my-2 p-2 menu">
-                            <a href="">Settings</a>
-                        </li>
-                        <li class="my-2 p-2 menu">
-                            <a href="{{route('logout')}}">Logout</a>
-                        </li>
-
-                    </ul>
                 </div>
             </div>
         </div>

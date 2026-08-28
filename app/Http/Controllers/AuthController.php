@@ -48,7 +48,7 @@ class AuthController extends Controller
             }
         }
 
-        return redirect()->back()->withErrors('Login gagal, Silahkan coba lagi!');
+        return redirect()->back()->with('error', 'Login gagal, Silahkan coba lagi!');
     }
 
     public function logout(Request $request)
