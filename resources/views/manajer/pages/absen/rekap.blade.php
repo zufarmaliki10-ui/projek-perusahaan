@@ -25,7 +25,7 @@
                         </option>
                         @endfor
                 </select>
-                <button class="btn btn-primary mx-1" type="submit">Masuk ke Halaman Rekap</button>
+                <button class="btn btn-primary mx-1" type="submit">Tampilkan</button>
             </form>
         </div>
         <!-- Form Filter -->
@@ -52,10 +52,10 @@
                         <td>{{$data->first()->karyawan->nama_lengkap}}</td>
                         <td>{{$data->first()->karyawan->jabatan->nama_jabatan}}</td>
                         <td>{{$data->first()->karyawan->jabatan->departemen->nama_departemen}}</td>
-                        <td>{{$data->where('status', 'hadir')->count()}}</td>
-                        <td>{{$data->where('status', 'izin')->count()}}</td>
-                        <td>{{$data->where('status', 'sakit')->count()}}</td>
-                        <td>{{$data->where('status', 'alfa')->count()}}</td>
+                        <td>{{$data->where('status', 'Hadir')->count()}}</td>
+                        <td>{{$data->where('status', 'Izin')->count()}}</td>
+                        <td>{{$data->where('status', 'Sakit')->count()}}</td>
+                        <td>{{$data->where('status', 'Alfa')->count()}}</td>
                     </tr>
                     @empty
                     <tr>
@@ -64,6 +64,9 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-primary btn-sm bi bi-download align-content-center" href=""><span class="mx-1">Download CSV</span></a>
         </div>
         @endif
         <!-- Data Absensi Rekap -->
