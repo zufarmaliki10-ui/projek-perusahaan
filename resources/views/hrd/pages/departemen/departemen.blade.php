@@ -27,7 +27,7 @@
                             <td>{{$item->nama_departemen}}</td>
                             <td>{{$item->jabatan->sum(fn ($jabatan) => $jabatan->karyawan->count())}}</td>
                             <td>
-                                <span class="badge {{ $item->status == 'aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>
+                                <span class="badge {{ $item->status == 'Aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>
                             </td>
                             <td class="d-flex justify-content-center">
                                 <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>

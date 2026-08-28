@@ -23,7 +23,7 @@ class DepartemenController extends Controller
     {
         $request->validate([
             'nama_departemen' => 'required|string|max:100',
-            'status' => 'required|in:aktif,non-aktif',
+            'status' => 'required|in:Aktif,Non-Aktif',
         ]);
 
         Departemen::create([
@@ -44,7 +44,7 @@ class DepartemenController extends Controller
     {
         $request->validate([
             'nama_departemen' => 'required|string|max:100',
-            'status' => 'required|in:aktif,non-aktif',
+            'status' => 'required|in:Aktif,Non-Aktif',
         ]);
 
         $departemen->update([
