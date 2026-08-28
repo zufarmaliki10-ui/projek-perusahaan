@@ -30,12 +30,25 @@
                                 <span class="badge {{ $item->status == 'Aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>
                             </td>
                             <td class="d-flex justify-content-center">
-                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.departemen.edit', $item->id)}}"></a>
-                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill" href="{{route('HRD.jabatan', $item->id)}}"></a>
+                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat"
+                                    href="{{route('HRD.departemen.edit', $item->id)}}"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Ubah Data"></a>
+                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill"
+                                    href="{{route('HRD.jabatan', $item->id)}}"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Lihat Data Jabatan"></a>
                                 <form action="{{route('HRD.departemen.destroy', $item->id)}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
+                                    <button
+                                        type="submit"
+                                        class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Hapus Data"></button>
                                 </form>
                             </td>
                         </tr>

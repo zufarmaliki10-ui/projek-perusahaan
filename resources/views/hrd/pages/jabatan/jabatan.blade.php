@@ -31,11 +31,20 @@
                             <td>Rp {{number_format($item->gaji_pokok, 0, ',', '.')}}</td>
                             <td>Rp {{number_format($item->tunjangan, 0, ',', '.')}}</td>
                             <td class="d-flex justify-content-center">
-                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat" href="{{route('HRD.jabatan.edit', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}"></a>
+                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat"
+                                    href="{{route('HRD.jabatan.edit', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Ubah Data"></a>
                                 <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"></button>
+                                    <button
+                                        type="submit"
+                                        class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Hapus Data"></button>
                                 </form>
                             </td>
                         </tr>

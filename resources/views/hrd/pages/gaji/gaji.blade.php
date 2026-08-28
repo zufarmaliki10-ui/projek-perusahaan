@@ -41,7 +41,11 @@
                             @endif
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{route('HRD.gaji.show', $item->id)}}">Lihat Slip</a>
+                            <a class="btn btn-primary btn-sm bi bi-eye-fill"
+                                href="{{route('HRD.gaji.show', $item->id)}}"
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Lihat Slip Gaji"></a>
                         </td>
                     </tr>
                     @empty
