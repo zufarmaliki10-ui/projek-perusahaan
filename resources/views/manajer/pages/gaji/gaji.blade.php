@@ -30,7 +30,11 @@
                         <td>{{$item->jumlah_karyawan}}</td>
                         <td>Rp {{ number_format($item->total_gaji, 0, ',', '.') }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('manajer.gaji.laporan', ['bulan' => $item->bulan, 'tahun' => $item->tahun])}}"></a>
+                            <a class="btn btn-primary btn-sm bi bi-eye-fill"
+                                href="{{route('manajer.gaji.laporan', ['bulan' => $item->bulan, 'tahun' => $item->tahun])}}"
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Rekap Gaji"></a>
                         </td>
                     </tr>
                     @empty

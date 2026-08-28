@@ -2,9 +2,9 @@
             <!-- Toggle Btn -->
             <div class="sidebar-toggle d-flex justify-content-center py-1">
                 <button
-                    class="toggler-btn bi bi-list fs-5 text-warning"
-                    type="button"
-                    style="height: 30px"></button>
+                class="toggler-btn bi bi-list fs-5 text-light"
+                type="button"
+                style="height: 30px"></button>
             </div>
             <!-- Toggle Btn -->
             <!-- Sidebar Logo -->

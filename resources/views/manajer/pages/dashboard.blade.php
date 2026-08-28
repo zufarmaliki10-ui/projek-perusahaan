@@ -135,7 +135,11 @@
                             </td>
                             <td>{{$item->disetujui_oleh}}</td>
                             <td>
-                                <a class="btn btn-primary btn-sm bi bi-eye-fill" href="{{route('manajer.cuti.show', $item->id)}}"></a>
+                                <a class="btn btn-primary btn-sm bi bi-eye-fill"
+                                    href="{{route('manajer.cuti.show', $item->id)}}"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Lihat Surat"></a>
                             </td>
                         </tr>
                         @empty

@@ -35,16 +35,16 @@
                         href=""
                         aria-expanded="">{{ auth()->user()->name }}</a>
                     <div>
-                        <a href="{{route('logout')}}"
-                            class="btn btn-danger btn-sm bi bi-door-open-fill"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            data-bs-custom-class="custom-tooltip"
-                            data-bs-title="Logout"></a>
                         <a href="{{route('karyawan.settings')}}"
                             class="btn btn-secondary btn-sm bi bi-gear-fill"
                             data-bs-toggle="tooltip" data-bs-placement="bottom"
                             data-bs-custom-class="custom-tooltip"
                             data-bs-title="Ubah Password"></a>
+                        <a href="{{route('logout')}}"
+                            class="btn btn-danger btn-sm bi bi-door-open-fill"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Logout"></a>
                     </div>
                 </div>
             </div>
