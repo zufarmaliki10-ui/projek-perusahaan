@@ -1,9 +1,9 @@
 @extends('hrd.index')
 
 @section('content')
-<div class="col-md-8 mx-auto my-3">
+<div class="col-md-8 col-sm-10 mx-auto my-3">
     <a class="btn btn-sm btn-primary bi bi-arrow-left my-2" href="{{route('HRD.karyawan')}}"><span class="mx-1">Kembali</span></a>
-    <h3>Tambah Karyawan</h3>
+    <h3>Ubah Data Karyawan</h3>
     <form action="{{route('HRD.karyawan.update', $karyawan->id)}}" method="post">
         @csrf
         @method('PUT')
@@ -13,8 +13,8 @@
         <input class="form-control" type="text" name="nip" id="nip" value="{{$karyawan->nip}}">
         <label class="form-label mt-2" for="jenis_kelamin">Jenis Kelamin</label>
         <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
-            <option value="laki-laki" {{$karyawan->jenis_kelamin == 'laki-laki' ? 'selected' : ''}}>Laki - Laki</option>
-            <option value="perempuan" {{$karyawan->jenis_kelamin == 'perempuan' ? 'selected' : ''}}>Perempuan</option>
+            <option value="Laki-Laki" {{$karyawan->jenis_kelamin == 'Laki-Laki' ? 'selected' : ''}}>Laki - Laki</option>
+            <option value="Perempuan" {{$karyawan->jenis_kelamin == 'Perempuan' ? 'selected' : ''}}>Perempuan</option>
         </select>
         <label class="form-label mt-2" for="no_telp">No. Telp</label>
         <input class="form-control" type="text" name="no_telp" id="no_telp" value="{{$karyawan->no_telp}}">
@@ -41,11 +41,11 @@
         <input class="form-control" type="date" name="tanggal_masuk" id="tanggal_masuk" value="{{$karyawan->tanggal_masuk}}">
         <label class="form-label mt-2" for="status">Status</label>
         <select class="form-select" name="status" id="status">
-            <option value="aktif" {{$karyawan->status == 'aktif' ? 'selected' : ''}}>Aktif</option>
-            <option value="non-aktif" {{$karyawan->status == 'non-aktif' ? 'selected' : ''}}>Non-Aktif</option>
+            <option value="Aktif" {{$karyawan->status == 'Aktif' ? 'selected' : ''}}>Aktif</option>
+            <option value="Non-Aktif" {{$karyawan->status == 'Non-Aktif' ? 'selected' : ''}}>Non-Aktif</option>
         </select>
         <div class="my-3 justify-content-center d-flex">
-            <button class="btn btn-primary w-50" type="submit">Tambah Karyawan</button>
+            <button class="btn btn-success w-50" type="submit">Ubah Data</button>
         </div>
     </form>
 </div>

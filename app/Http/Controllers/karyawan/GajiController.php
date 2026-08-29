@@ -34,6 +34,6 @@ class GajiController extends Controller
         }
         $gaji->load('karyawan.jabatan.departemen');
         $pdf = Pdf::loadView('karyawan.pages.slip_pdf', compact('gaji'));
-        return $pdf->download('slip-gaji-' . $gaji->bulan . '-' . $gaji->tahun . '.pdf');
+        return $pdf->download('slip-gaji-' . $gaji->karyawan->nama_lengkap . '-' . $gaji->bulan . '-' . $gaji->tahun . '.pdf');
     }
 }

@@ -14,11 +14,21 @@
             <div class="d-flex justify-content-between">
                 <div class="form-tgl my-2">
                     <label class="form-label" for="tanggal_mulai">Mulai Cuti</label>
-                    <input class="form-control" type="date" name="tanggal_mulai" id="tanggal_mulai" />
+                    <input class="form-control"
+                        type="date"
+                        name="tanggal_mulai"
+                        id="tanggal_mulai"
+                        min="{{date('Y-m-d')}}"
+                        required />
                 </div>
                 <div class="form-tgl my-2">
                     <label class="form-label" for="tanggal_selesai">Akhir Cuti</label>
-                    <input class="form-control" type="date" name="tanggal_selesai" id="tanggal_selesai" />
+                    <input class="form-control"
+                        type="date"
+                        name="tanggal_selesai"
+                        id="tanggal_selesai"
+                        min="{{date('Y-m-d')}}"
+                        required />
                 </div>
             </div>
             <label class="form-label" for="alasan">Rincian Cuti</label>

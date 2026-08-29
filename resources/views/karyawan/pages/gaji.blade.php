@@ -36,7 +36,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5">Gaji belum dicairkan</td>
+                    <td colspan="6">Gaji belum dicairkan</td>
                 </tr>
                 @endforelse
             </tbody>

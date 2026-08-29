@@ -117,3 +117,15 @@ const tooltipTriggerList = document.querySelectorAll(
 const tooltipList = [...tooltipTriggerList].map(
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
 );
+
+// tgl cuti
+const tanggalMulai = document.getElementById("tanggal_mulai");
+const tanggalSelesai = document.getElementById("tanggal_selesai");
+
+tanggalMulai.addEventListener("change", function () {
+    tanggalSelesai.min = this.value;
+
+    if (tanggalSelesai.value < this.value) {
+        tanggalSelesai.value = this.value;
+    }
+});

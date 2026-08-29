@@ -15,7 +15,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Departemen</th>
-                            <th>Jumlah Karyawan</th>
+                            <th>Total Jabatan</th>
+                            <th>Total Karyawan</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -25,6 +26,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nama_departemen}}</td>
+                            <td>{{$item->jabatan_count}}</td>
                             <td>{{$item->jabatan->sum(fn ($jabatan) => $jabatan->karyawan->count())}}</td>
                             <td>
                                 <span class="badge {{ $item->status == 'Aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>

@@ -1,7 +1,7 @@
 @extends('hrd.index')
 
 @section('content')
-<div class="col-md-8 mx-auto my-3">
+<div class="col-md-8 col-sm-10 mx-auto my-3">
     <a class="btn btn-sm btn-primary bi bi-arrow-left my-2" href="{{route('HRD.jabatan',['departemen' => $departemen->id])}}"><span class="mx-1">Kembali</span></a>
     <h3>Ubah Data Jabatan</h3>
     <form action="{{route('HRD.jabatan.update', ['departemen'=>$departemen->id, 'jabatan'=>$jabatan->id])}}" method="post">

@@ -72,6 +72,52 @@
 
     </div>
     <!-- Profil -->
+    <!-- Data Absen -->
+    <div class="table-responsive mx-4 my-2">
+        <h5>Tabel Absensi</h5>
+        <table class="table table-striped table-hover">
+            <thead class="text-center">
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Jam Masuk</th>
+                    <th>Jam Pulang</th>
+                    <th>Status</th>
+                    <th>Status Validasi</th>
+                    <th>Validator</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @forelse ($totalAbsen as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->tanggal->locale('id')->translatedFormat('D, d M Y')}}</td>
+                    <td>{{$item->jam_masuk}}</td>
+                    <td>{{$item->jam_pulang}}</td>
+                    <td>
+                        <span @class([ 'badge' , 'text-bg-secondary'=> $item->status == 'Sakit',
+                            'text-bg-danger' => $item->status == 'Alfa',
+                            'text-bg-success' => $item->status == 'Hadir',
+                            'text-bg-warning' => $item->status == 'Izin',
+                            ])>{{$item->status}}</span>
+                    </td>
+                    <td>
+                        <span @class([ 'badge' , 'text-bg-warning'=> $item->status_validasi == 'Menunggu',
+                            'text-bg-danger' => $item->status_validasi == 'Ditolak',
+                            'text-bg-success' => $item->status_validasi == 'Disetujui',
+                            ])>{{$item->status_validasi}}</span>
+                    </td>
+                    <td>{{$item->validator}}</td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="6">Belum ada pengajuan cuti</td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+    <!-- Data Absen -->
     <!-- Data Cuti -->
     <div class="table-responsive mx-4 my-2">
         <h5>Tabel Pengajuan Cuti</h5>
