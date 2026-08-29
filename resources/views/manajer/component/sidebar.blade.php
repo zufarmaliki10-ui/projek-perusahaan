@@ -2,9 +2,9 @@
             <!-- Toggle Btn -->
             <div class="sidebar-toggle d-flex justify-content-center py-1">
                 <button
-                class="toggler-btn bi bi-list fs-5 text-light"
-                type="button"
-                style="height: 30px"></button>
+                    class="toggler-btn bi bi-list fs-5 text-light"
+                    type="button"
+                    style="height: 30px"></button>
             </div>
             <!-- Toggle Btn -->
             <!-- Sidebar Logo -->
@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{request()->routeIs('logout') ? 'active' : ''}}" href="{{route('logout')}}">
+                    <a class="sidebar-link {{request()->routeIs('logout') ? 'active' : ''}}" href="{{route('logout')}}" onclick="return alertLogout(event, this, 'Anda akan Logout', 'Apakah anda yakin?')">
                         <i class="bi bi-door-open-fill"></i>
                         <span>Logout</span>
                     </a>

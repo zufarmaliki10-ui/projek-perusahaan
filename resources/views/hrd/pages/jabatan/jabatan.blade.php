@@ -36,7 +36,7 @@
                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
                                     data-bs-title="Ubah Data"></a>
-                                <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
+                                <form action="{{route('HRD.jabatan.destroy', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}" method="post" onsubmit="return alertConfirm(event, this, 'Data jabatan akan dihapus', 'Apakah anda yakin?')">
                                     @csrf
                                     @method('DELETE')
                                     <button

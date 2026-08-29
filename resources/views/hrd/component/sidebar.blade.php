@@ -51,7 +51,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link {{request()->routeIs('logout') ? 'active' : ''}}" href="{{route('logout')}}">
+            <a class="sidebar-link {{request()->routeIs('logout') ? 'active' : ''}}" href="{{route('logout')}}" onclick="return alertLogout()">
                 <i class="bi bi-door-open-fill"></i>
                 <span>Logout</span>
             </a>

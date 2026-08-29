@@ -50,7 +50,7 @@
                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
                                     data-bs-title="Lihat Data Karyawan"></a>
-                                <form action="{{route('HRD.karyawan.destroy', $item->id)}}" method="post" onsubmit="return alertConfirm(event, this, 'Data departemen akan dihapus')">
+                                <form action="{{route('HRD.karyawan.destroy', $item->id)}}" method="post" onsubmit="return alertConfirm(event, this, 'Data karyawan akan dihapus', 'Apakah anda yakin?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"

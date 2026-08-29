@@ -139,17 +139,37 @@ if (departemenGaji && karyawanGaji) {
     });
 }
 
-function alertConfirm(event, form, pesan) {
+function alertConfirm(event, form, title, pesan) {
     event.preventDefault();
 
     Swal.fire({
-        title: "Anda yakin menghapus ini?",
-        text: "Data yang sudah dihapus tidak dapat kembali",
+        title: title,
+        text: pesan,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#016124",
         cancelButtonColor: "rgb(111, 11, 11)",
         confirmButtonText: "Ya, Hapus data ini",
+        cancelButtonText: "Tidak, Kembali",
+    }).then((result) => {
+        if (result.isConfirmed) form.submit();
+    });
+
+    return false;
+}
+
+function alertLogout(event, form, pesan) {
+    event.preventDefault();
+
+    Swal.fire({
+        title: "Anda akan Logout",
+        text: "Apakah anda yakin?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#016124",
+        cancelButtonColor: "rgb(111, 11, 11)",
+        confirmButtonText: "Logout",
+        cancelButtonText: "Kembali",
     }).then((result) => {
         if (result.isConfirmed) form.submit();
     });
