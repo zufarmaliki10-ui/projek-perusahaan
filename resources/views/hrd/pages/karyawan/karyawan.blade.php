@@ -7,12 +7,6 @@
         <div class="col-md-12 my-sm-1 px-sm-1 col-xl-12 my-xl-0 px-xl-3">
             <h5>Data Karyawan</h5>
             <div class="d-flex justify-content-between my-3">
-                <select class="form-select w-50" aria-label="Default select example">
-                    <option selected>-- Pilih Departemen --</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
                 <a href="{{route('HRD.karyawan.create')}}" class="btn btn-primary bi bi-plus">Tambah Data Karyawan</a>
             </div>
             <div class="table-responsive">

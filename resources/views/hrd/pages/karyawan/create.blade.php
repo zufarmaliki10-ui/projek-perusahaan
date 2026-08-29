@@ -7,37 +7,37 @@
     <form action="{{route('HRD.karyawan.store')}}" method="post">
         @csrf
         <label class="form-label mt-2" for="nama_lengkap">Nama Lengkap Karyawan</label>
-        <input class="form-control" type="text" name="nama_lengkap" id="nama_lengkap">
+        <input class="form-control" type="text" name="nama_lengkap" id="nama_lengkap" required>
         <label class="form-label mt-2" for="nip">NIP</label>
-        <input class="form-control" type="text" name="nip" id="nip">
+        <input class="form-control" type="text" name="nip" id="nip" required>
         <label class="form-label mt-2" for="jenis_kelamin">Jenis Kelamin</label>
-        <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
+        <select class="form-select" name="jenis_kelamin" id="jenis_kelamin" required>
             <option value="Laki-Laki">Laki - Laki</option>
             <option value="Perempuan">Perempuan</option>
         </select>
         <label class="form-label mt-2" for="no_telp">No. Telp</label>
-        <input class="form-control" type="text" name="no_telp" id="no_telp">
+        <input class="form-control" type="text" name="no_telp" id="no_telp" required>
         <label class="form-label mt-2" for="bank">Bank</label>
-        <input class="form-control" type="text" name="bank" id="bank">
+        <input class="form-control" type="text" name="bank" id="bank" required>
         <label class="form-label mt-2" for="nomer_rekening">Nomer Rekening</label>
-        <input class="form-control" type="text" name="nomer_rekening" id="nomer_rekening">
+        <input class="form-control" type="text" name="nomer_rekening" id="nomer_rekening" required>
         <label class="form-label mt-2" for="alamat">Alamat</label>
-        <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat karyawan..."></textarea>
+        <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat karyawan..." required></textarea>
         <label class="form-label mt-2" for="departemen">Departemen</label>
-        <select class="form-select" name="departemen" id="departemen">
+        <select class="form-select" name="departemen" id="departemen" required>
             <option value="">-- Pilih Departemen --</option>
             @foreach ($departemen as $item)
             <option value="{{$item->id}}">{{$item->nama_departemen}}</option>
             @endforeach
         </select>
         <label class="form-label mt-2" for="jabatan">Jabatan</label>
-        <select class="form-select" name="id_jabatan" id="jabatan">
+        <select class="form-select" name="id_jabatan" id="jabatan" required>
             <option value="">-- Pilih Departemen Terlebih Dahulu --</option>
         </select>
         <label class="form-label mt-2" for="tanggal_masuk">Tanggal Masuk</label>
-        <input class="form-control" type="date" name="tanggal_masuk" id="tanggal_masuk">
+        <input class="form-control" type="date" name="tanggal_masuk" id="tanggal_masuk" required>
         <label class="form-label mt-2" for="status">Status</label>
-        <select class="form-select" name="status" id="status">
+        <select class="form-select" name="status" id="status" required>
             <option value="Aktif">Aktif</option>
             <option value="Non-Aktif">Non-Aktif</option>
         </select>

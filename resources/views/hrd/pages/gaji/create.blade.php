@@ -21,19 +21,19 @@
             <h4>Input Gaji Karyawan</h4>
             <form action="{{route('HRD.gaji.store')}}" method="post">
                 @csrf
-                <select class="form-control" name="departemen" id="departemenGaji">
+                <select class="form-control" name="departemen" id="departemenGaji" required>
                     <option value="">-- Pilih Departemen --</option>
                     @foreach ($departemen as $item)
                     <option value="{{$item->id}}">{{$item->nama_departemen}}</option>
                     @endforeach
                 </select>
-                <select class="form-control mt-2" name="id_karyawan" id="karyawanGaji">
+                <select class="form-control mt-2" name="id_karyawan" id="karyawanGaji" required>
                     <option value="">-- Pilih Departemen terlebih dahulu --</option>
                 </select>
                 <label class="form-label mt-2" for="bulan">Bulan</label>
-                <input class="form-control" type="text" name="bulan" id="bulan">
+                <input class="form-control" type="text" name="bulan" id="bulan" required>
                 <label class="form-label mt-2" for="tahun">Tahun</label>
-                <input class="form-control" type="year" name="tahun" id="tahun">
+                <input class="form-control" type="year" name="tahun" id="tahun" required>
                 <div class="d-flex justify-content-end mt-3">
                     <button type="submit" class="btn btn-primary">Lanjutkan</button>
                 </div>

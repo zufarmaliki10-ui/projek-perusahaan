@@ -9,11 +9,11 @@
         <label class="form-label mt-2" for="name">Nama Karyawan</label>
         <input class="form-control" type="text" name="name" id="name" value="{{$karyawan->nama_lengkap}}" readonly>
         <label class="form-label mt-2" for="email">Email</label>
-        <input class="form-control" type="email" name="email" id="email">
+        <input class="form-control" type="email" name="email" id="email" required>
         <label class="form-label mt-2" for="password">Password</label>
-        <input class="form-control" type="password" name="password" id="password">
+        <input class="form-control" type="password" name="password" id="password" required>
         <label class="form-label mt-2" for="password">Konfirmasi Password</label>
-        <input class="form-control" type="password" name="password_confirmation" id="password_confirmation">
+        <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" required>
         <div class="my-3 justify-content-center d-flex">
             <button class="btn btn-primary w-50" type="submit">Buat Akun Karyawan</button>
         </div>

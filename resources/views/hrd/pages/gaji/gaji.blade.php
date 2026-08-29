@@ -8,10 +8,7 @@
         <div class="table-responsive">
             <h5>Data Gaji Karyawan</h5>
             <div class="d-flex justify-content-between my-3">
-                <select class="form-select w-25" name="" id="">
-                    <option value="">-- Pilih Bulan --</option>
-                </select>
-                <a class="btn btn-primary btn-sm bi bi-plus align-content-center" href="{{route('HRD.gaji.create')}}">Input Gaji Karyawan</a>
+                <a class="btn btn-primary bi bi-plus align-content-center" href="{{route('HRD.gaji.create')}}">Input Gaji Karyawan</a>
             </div>
             <table class="table table-striped table-hover">
                 <thead>

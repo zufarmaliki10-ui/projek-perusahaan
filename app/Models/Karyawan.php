@@ -25,6 +25,15 @@ class Karyawan extends Model
         'status',
     ];
 
+    protected static function booted()
+    {
+        static::deleting(function ($karyawan) {
+            if ($karyawan->user) {
+                $karyawan->user->delete();
+            }
+        });
+    }
+
     public function jabatan()
     {
         return $this->belongsTo(Jabatan::class, 'id_jabatan');

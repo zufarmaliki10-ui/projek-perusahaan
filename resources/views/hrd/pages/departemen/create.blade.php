@@ -7,9 +7,9 @@
     <form action="{{route('HRD.departemen.store')}}" method="post">
         @csrf
         <label class="form-label mt-2" for="nama_departemen">Nama Departemen</label>
-        <input class="form-control" type="text" name="nama_departemen" id="nama_departemen">
+        <input class="form-control" type="text" name="nama_departemen" id="nama_departemen" required>
         <label class="form-label mt-2" for="status">Status</label>
-        <select class="form-select" name="status" id="status">
+        <select class="form-select" name="status" id="status" required>
             <option value="Aktif">Aktif</option>
             <option value="Non-Aktif">Non-Aktif</option>
         </select>

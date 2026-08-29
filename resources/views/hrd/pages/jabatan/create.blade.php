@@ -7,11 +7,11 @@
     <form action="{{route('HRD.jabatan.store',['departemen' => $departemen->id])}}" method="post">
         @csrf
         <label class="form-label mt-2" for="nama_jabatan">Nama Jabatan</label>
-        <input class="form-control" type="text" name="nama_jabatan" id="nama_jabatan">
+        <input class="form-control" type="text" name="nama_jabatan" id="nama_jabatan" required>
         <label class="form-label" for="gaji_pokok">Gaji Pokok</label>
-        <input class="form-control" type="number" name="gaji_pokok" id="gaji_pokok">
+        <input class="form-control" type="number" name="gaji_pokok" id="gaji_pokok" required>
         <label class="form-label" for="tunjangan">Tunjangan</label>
-        <input class="form-control" type="number" name="tunjangan" id="tunjangan">
+        <input class="form-control" type="number" name="tunjangan" id="tunjangan" required>
         <div class="my-3 justify-content-center d-flex">
             <button class="btn btn-primary w-50" type="submit">Tambah Jabatan</button>
         </div>
