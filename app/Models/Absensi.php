@@ -26,4 +26,11 @@ class Absensi extends Model
     {
         return $this->belongsTo(Karyawan::class, 'id_karyawan');
     }
+
+    public function casts(): array
+    {
+        return [
+            'tanggal' => 'date',
+        ];
+    }
 }

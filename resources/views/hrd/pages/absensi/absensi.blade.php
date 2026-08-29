@@ -13,6 +13,7 @@
                         <th>No</th>
                         <th>Nama Lengkap</th>
                         <th>Jabatan</th>
+                        <th>Tanggal</th>
                         <th>Jam Masuk</th>
                         <th>Jam Pulang</th>
                         <th>Status</th>
@@ -27,6 +28,7 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$item->karyawan->nama_lengkap}}</td>
                         <td>{{$item->karyawan->jabatan->nama_jabatan}}</td>
+                        <td>{{$item->tanggal->locale('id')->translatedFormat('d M Y')}}</td>
                         <td>{{$item->jam_masuk}}</td>
                         <td>{{$item->jam_keluar}}</td>
                         <td>
