@@ -37,9 +37,17 @@
                         </td>
                         <td>
                             @if ($item->status == 'Menunggu')
-                            <a class="btn btn-warning btn-sm" href="{{route('manajer.cuti.validasi', $item->id)}}">Lihat Pengajuan</a>
+                            <a class="btn btn-warning btn-sm bi-check-circle"
+                                href="{{route('manajer.cuti.validasi', $item->id)}}"
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Validasi Cuti"></a>
                             @else
-                            <a class="btn btn-primary btn-sm" href="{{route('manajer.cuti.show', $item->id)}}">Lihat Surat Cuti</a>
+                            <a class="btn btn-primary btn-sm bi bi-eye-fill"
+                                href="{{route('manajer.cuti.show', $item->id)}}"
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Lihat Surat Cuti"></a>
                             @endif
                         </td>
                     </tr>
