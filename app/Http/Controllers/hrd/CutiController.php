@@ -24,11 +24,13 @@ class CutiController extends Controller
     {
         $request->validate([
             'status' => 'required|in:Menunggu,Disetujui,Ditolak',
+            'ttd' => 'required|string',
             'disetujui_oleh' => 'required|string',
         ]);
 
         $cuti->update([
             'status' => $request->status,
+            'ttd' => $request->ttd,
             'disetujui_oleh' => auth()->user()->name,
         ]);
 

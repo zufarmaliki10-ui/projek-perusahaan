@@ -7,9 +7,6 @@
         <!-- Data Cuti -->
         <div class="table-responsive">
             <h5>Data Pengajuan Cuti Karyawan</h5>
-            <select class="form-select my-2 w-25" name="" id="">
-                <option value="">-- Pilih Bulan --</option>
-            </select>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>

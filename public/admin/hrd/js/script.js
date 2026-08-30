@@ -139,6 +139,7 @@ if (departemenGaji && karyawanGaji) {
     });
 }
 
+// sweetalert
 function alertConfirm(event, form, title, pesan) {
     event.preventDefault();
 
@@ -177,6 +178,7 @@ function alertLogout(event, form, pesan) {
     return false;
 }
 
+// Close alert bootstrap
 setTimeout(() => {
     const alerts = document.querySelectorAll(".alert");
 
@@ -184,3 +186,40 @@ setTimeout(() => {
         alert.remove();
     });
 }, 1000);
+
+// ttd online
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("signature-pad");
+    if (!canvas) return;
+    const kotakTtd = new SignaturePad(canvas, {
+        backgroundColor: "rgba(255, 255, 255, 0)",
+        penColor: "rgb(0,0,0)",
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", function () {
+        kotakTtd.clear();
+        const inputTtd = document.getElementById("ttd");
+        if (inputTtd) inputTtd.value = "";
+    });
+
+    const formValidasi = document.getElementById("formValidasi");
+    if (formValidasi) {
+        formValidasi.addEventListener("submit", function (e) {
+            const status = document.getElementById("status").value;
+
+            if (
+                (status == "Disetujui" || status == "Ditolak") &&
+                kotakTtd.isEmpty()
+            ) {
+                alert("Harap masukkan tanda tangan terlebih dahulu");
+                e.preventDefault();
+                return false;
+            }
+
+            if (!kotakTtd.isEmpty()) {
+                const ttdBase64 = kotakTtd.toDataURL("image/png");
+                document.getElementById("ttd").value = ttdBase64;
+            }
+        });
+    }
+});

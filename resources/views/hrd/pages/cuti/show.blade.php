@@ -35,7 +35,10 @@
             @elseif ($cuti->status == 'ditolak')
             <h6 class="text-center">Ditolak Oleh,</h6>
             @endif
-            <h6 class="text-center mt-5">({{$cuti->disetujui_oleh}})</h6>
+            <div class="d-flex justify-content-center my-2">
+                <img class="img-fluid" src="{{$cuti->ttd}}" alt="Tanda Tangan" style="height: 80px; width:auto;">
+            </div>
+            <h6 class="text-center">({{$cuti->disetujui_oleh}})</h6>
         </div>
     </div>
 </div>

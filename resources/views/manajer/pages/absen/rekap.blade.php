@@ -66,7 +66,7 @@
             </table>
         </div>
         <div class="d-flex justify-content-end">
-            <a class="btn btn-primary btn-sm bi bi-download align-content-center" href=""><span class="mx-1">Download CSV</span></a>
+            <a class="btn btn-primary btn-sm bi bi-download align-content-center" href="{{route('manajer.absensi.export', ['tahun' => request('tahun'), 'bulan' => request('bulan')])}}"><span class="mx-1">Download CSV</span></a>
         </div>
         @endif
         <!-- Data Absensi Rekap -->

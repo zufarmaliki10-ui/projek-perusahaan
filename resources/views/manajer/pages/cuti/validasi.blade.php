@@ -54,7 +54,13 @@
                     <option value="ditolak" {{$cuti->status == 'ditolak' ? 'selected' : ''}}>Ditolak</option>
                 </select>
                 <label class="form-label mt-2" for="disetujui_oleh">Disetujui Oleh</label>
-                <input class="form-control" type="text" name="disetujui_oleh" id="disetujui_oleh" value="{{auth()->user()->name}}" readonly/>
+                <input class="form-control" type="text" name="disetujui_oleh" id="disetujui_oleh" value="{{auth()->user()->name}}" readonly />
+                <label class="form-label mt-2" for="ttd">Tanda Tangan</label>
+                <div class="border border-3 border-dark-subtle rounded-4 bg-light-subtle" style="width: 100%; max-width: 400px;">
+                    <canvas id="signature-pad" width="400" height="200" style="touch-action: none; cursor:crosshair;"></canvas>
+                </div>
+                <button type="button" id="clearBtn" class="btn btn-danger btn-sm bi bi-eraser-fill m-1"><span class="mx-1">Ulangi Tanda Tangan</span></button>
+                <input type="hidden" name="ttd" id="ttd">
                 <div class="mt-3 d-flex gap-2 justify-content-end">
                     <button type="submit" class="btn btn-sm btn-success">Konfirmasi</button>
                 </div>

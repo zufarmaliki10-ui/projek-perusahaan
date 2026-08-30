@@ -7,11 +7,6 @@
         <!-- Data Cuti -->
         <div class="table-responsive">
             <h5>Data Gaji Karyawan</h5>
-            <div class="d-flex justify-content-between my-3">
-                <select class="form-select w-25" name="" id="">
-                    <option value="">-- Pilih Tahun --</option>
-                </select>
-            </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>

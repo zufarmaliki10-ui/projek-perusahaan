@@ -17,6 +17,7 @@ class Cuti extends Model
         'tanggal_selesai',
         'alasan',
         'status',
+        'ttd',
         'disetujui_oleh',
     ];
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->text('alasan');
             $table->enum('status', ['Menunggu', 'Disetujui', 'Ditolak'])->default('Menunggu');
+            $table->longText('ttd')->nullable();
             $table->string('disetujui_oleh')->nullable();
             $table->timestamps();
         });

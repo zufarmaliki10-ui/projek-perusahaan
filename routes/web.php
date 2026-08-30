@@ -135,6 +135,7 @@ Route::prefix('manajer')->as('manajer.')->middleware([CekManajer::class])->group
         Route::get('/update/{id}', [ManajerAbsensiController::class, 'edit'])->name('absensi.validasi');
         Route::put('/update/{absensi}', [ManajerAbsensiController::class, 'update'])->name('absensi.update');
         Route::get('/rekap', [ManajerAbsensiController::class, 'rekap'])->name('absensi.rekap');
+        Route::get('/rekap/csv', [ManajerAbsensiController::class, 'export'])->name('absensi.export');
     });
     Route::prefix('cuti')->group(function () {
         Route::get('/', [ManajerCutiController::class, 'index'])->name('cuti');
