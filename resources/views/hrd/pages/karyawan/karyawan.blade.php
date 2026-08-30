@@ -33,13 +33,13 @@
                             <td>
                                 <span class="badge {{ $item->status == 'Aktif' ? 'text-bg-success' : 'text-bg-danger'}}">{{$item->status}}</span>
                             </td>
-                            <td class="d-flex justify-content-center">
-                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat"
+                            <td class="d-lg-flex d-sm-block justify-content-center">
+                                <a class="btn btn-sm mx-1 my-sm-1 btn-success bi bi-arrow-repeat"
                                     href="{{route('HRD.karyawan.edit', $item->id)}}"
                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
                                     data-bs-title="Ubah Data"></a>
-                                <a class="btn btn-sm mx-1 btn-primary bi bi-eye-fill"
+                                <a class="btn btn-sm mx-1 my-sm-1 btn-primary bi bi-eye-fill"
                                     href="{{route('HRD.karyawan.show', $item->id)}}"
                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
@@ -48,12 +48,12 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
-                                        class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"
+                                        class="btn btn-sm mx-1 my-sm-1 btn-danger bi bi-trash-fill"
                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                         data-bs-custom-class="custom-tooltip"
                                         data-bs-title="Hapus Data"></button>
                                 </form>
-                                <a class="btn btn-sm mx-1 btn-warning bi bi-person-plus-fill"
+                                <a class="btn btn-sm mx-1 my-sm-1 btn-warning bi bi-person-plus-fill"
                                     href="{{route('HRD.karyawan.make', $item->id)}}"
                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"

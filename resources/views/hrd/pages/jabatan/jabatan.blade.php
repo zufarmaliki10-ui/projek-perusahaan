@@ -30,8 +30,8 @@
                             <td>{{$item->nama_jabatan}}</td>
                             <td>Rp {{number_format($item->gaji_pokok, 0, ',', '.')}}</td>
                             <td>Rp {{number_format($item->tunjangan, 0, ',', '.')}}</td>
-                            <td class="d-flex justify-content-center">
-                                <a class="btn btn-sm mx-1 btn-success bi bi-arrow-repeat"
+                            <td class="d-lg-flex d-sm-block justify-content-center">
+                                <a class="btn btn-sm mx-1 my-sm-1 btn-success bi bi-arrow-repeat"
                                     href="{{route('HRD.jabatan.edit', ['departemen'=>$departemen->id, 'jabatan'=>$item->id])}}"
                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
@@ -41,7 +41,7 @@
                                     @method('DELETE')
                                     <button
                                         type="submit"
-                                        class="btn btn-sm mx-1 btn-danger bi bi-trash-fill"
+                                        class="btn btn-sm mx-1 my-sm-1 btn-danger bi bi-trash-fill"
                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                         data-bs-custom-class="custom-tooltip"
                                         data-bs-title="Hapus Data"></button>

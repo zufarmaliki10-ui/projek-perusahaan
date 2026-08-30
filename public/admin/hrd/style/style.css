@@ -136,8 +136,14 @@ a.sidebar-link.active {
     border-radius: 10px;
 }
 
-table {
+.table {
     text-align: center;
+}
+
+th,
+td {
+    justify-content: center;
+    align-content: center;
 }
 
 /* Footer */

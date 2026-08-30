@@ -46,12 +46,12 @@
                         </td>
                         <td>{{$item->validator}}</td>
                         <td>
-                            <a class="btn btn-success btn-sm bi bi-check-circle"
+                            <a class="btn btn-success my-sm-1 btn-sm bi bi-check-circle"
                                 href="{{route('HRD.absensi.validasi', $item->id)}}"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-custom-class="custom-tooltip"
                                 data-bs-title="Validasi Absen"></a>
-                            <a class="btn btn-primary btn-sm bi bi-eye-fill"
+                            <a class="btn btn-primary my-sm-1 btn-sm bi bi-eye-fill"
                                 href="{{route('HRD.absensi.show', $item->id)}}"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                                 data-bs-custom-class="custom-tooltip"

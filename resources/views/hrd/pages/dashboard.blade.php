@@ -13,7 +13,7 @@
     <!-- Selamat Datang -->
     <!-- Card Info -->
     <div class="row mx-2 my-4">
-        <div class="col-md-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
+        <div class="col-md-6 col-sm-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
             <div class="card">
                 <div class="card-body d-flex justify-content-start">
                     <div class="icon bg-success d-flex">
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
+        <div class="col-md-6 col-sm-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
             <div class="card">
                 <div class="card-body d-flex justify-content-start">
                     <div class="icon bg-secondary d-flex">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
+        <div class="col-md-6 col-sm-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
             <div class="card">
                 <div class="card-body d-flex justify-content-start">
                     <div class="icon bg-primary d-flex">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
+        <div class="col-md-6 col-sm-6 my-sm-1 px-sm-1 col-xl-3 my-xl-0 px-xl-3">
             <div class="card">
                 <div class="card-body d-flex justify-content-start">
                     <div class="icon bg-warning d-flex">

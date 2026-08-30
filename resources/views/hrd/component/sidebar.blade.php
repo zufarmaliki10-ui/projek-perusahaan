@@ -1,4 +1,4 @@
-<aside id="sidebar">
+<aside id="sidebar" class="sidebar-toggle">
     <!-- Toggle Btn -->
     <div class="sidebar-toggle d-flex justify-content-center py-1">
         <button
