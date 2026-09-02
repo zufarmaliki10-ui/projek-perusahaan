@@ -28,7 +28,7 @@
     </div>
     <!-- Absen Masuk -->
     <!-- Absen Pulang -->
-    <div id="absenPulang" class="card my-4 w-75 mx-auto p-4 d-none">
+    <div id="absenPulang" class="card my-4 w-75 mx-auto p-4">
         <form action="{{route('karyawan.absensi.keluar')}}" method="post">
             @csrf
             @method('PUT')

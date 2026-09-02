@@ -64,29 +64,29 @@ tanggalJam();
 setInterval(tanggalJam, 1000);
 
 // jam pulamg
-function cekJamPulang() {
-    const sekarang = new Date();
+// function cekJamPulang() {
+//     const sekarang = new Date();
 
-    const jam = sekarang.getHours();
-    const menit = sekarang.getMinutes();
+//     const jam = sekarang.getHours();
+//     const menit = sekarang.getMinutes();
 
-    const totalMenit = jam * 60 + menit;
+//     const totalMenit = jam * 60 + menit;
 
-    const formPulang = document.getElementById("absenPulang");
-    const formMasuk = document.getElementById("absenMasuk");
+//     const formPulang = document.getElementById("absenPulang");
+//     const formMasuk = document.getElementById("absenMasuk");
 
-    if (!formPulang || !formMasuk) {
-        return;
-    }
+//     if (!formPulang || !formMasuk) {
+//         return;
+//     }
 
-    if (totalMenit >= 16 * 60 + 45) {
-        formPulang.classList.remove("d-none");
-        formMasuk.classList.add("d-none");
-    }
-}
+//     if (totalMenit >= 16 * 60 + 45) {
+//         formPulang.classList.remove("d-none");
+//         formMasuk.classList.add("d-none");
+//     }
+// }
 
-cekJamPulang();
-setInterval(cekJamPulang, 1000);
+// cekJamPulang();
+// setInterval(cekJamPulang, 1000);
 
 // Cek absensi izin / sakit
 const kondisi = document.getElementById("status");
