@@ -71,7 +71,7 @@
                 <input class="form form-control mb-0" type="password" name="password" id="" placeholder="Password">
                 @include('hrd.component.alert')
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn w-50 mt-3 bi bi-box-arrow-in-right"><span class="mx-2">Sign In</span></button>
+                    <button type="submit" class="btn w-50 mt-3 bi bi-box-arrow-in-right"><span class="mx-2">Masuk</span></button>
                 </div>
             </form>
         </div>
