@@ -12,7 +12,7 @@
             <select class="my-3 w-50 mx-auto form-select" name="status" id="status">
                 <option value="hadir">Hadir</option>
                 <option value="izin">Izin</option>
-                <option value="sakit">Sakit</option>
+                <option value="sakit">Alfa</option>
             </select>
             <div id="keteranganIzin" class="d-none">
                 <label class="form-label" for="keterangan">Keterangan: </label>
