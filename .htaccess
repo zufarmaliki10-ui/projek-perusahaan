@@ -1,0 +1,87 @@
+# ==============================================================================
+# STANDARD SECURITY HTACCESS FILE FOR LITESPEED / APACHE WEBSERVER
+# Target Domain: omahcreative.my.id
+# ==============================================================================
+
+# 1. DISABLE DIRECTORY BROWSING (Mencegah tampilan daftar file/folder)
+# Menyembunyikan tampilan 'Index of /' yang memperlihatkan php.ini & file sensitif
+Options -Indexes
+
+# Set UTF-8 Default Charset
+AddDefaultCharset UTF-8
+
+# Sembunyikan Server Signature
+ServerSignature Off
+
+# 2. PROTECT SENSITIVE FILES (Blokir akses ke file sensitif & tersembunyi)
+<FilesMatch "^(\.htaccess|\.htpasswd|\.env|\.git|php\.ini|\.user\.ini|config\.php|.*\.log|.*\.sql|.*\.bak|.*\.sh)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 3. FORCE HTTPS ENFORCEMENT (Memaksa koneksi aman HTTPS)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 4. HTTP SECURITY HEADERS (Header Keamanan HTTP Standar Industri)
+<IfModule mod_headers.c>
+    # Mencegah Clickjacking (Situs dimasukkan dalam iframe di domain luar)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Mencegah MIME-Type Sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # XSS Protection Filter
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # HSTS (HTTP Strict Transport Security) - Memaksa browser selalu pakai HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Referrer Policy untuk perlindungan privasi URL
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy (Membatasi fitur browser yang tidak diperlukan)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+
+    # Hapus Header Identitas Server/PHP
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>
+
+# 5. BLOCK MALICIOUS REQUESTS & INJECTIONS (SQLi, XSS, Directory Traversal)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Mencegah Directory Traversal (../)
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\) [NC,OR]
+    
+    # Mencegah Script Injection (<script>)
+    RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+    
+    # Mencegah Modifikasi Global Variable
+    RewriteCond %{QUERY_STRING} (GLOBALS|_REQUEST|_SERVER|_ENV|_FILES) [NC,OR]
+    
+    # Mencegah Base64 / Eval Executions
+    RewriteCond %{QUERY_STRING} (base64_encode|eval\(|gzinflate|unserialize) [NC,OR]
+    
+    # Mencegah SQL Injection Dasar
+    RewriteCond %{QUERY_STRING} (UNION|SELECT|INSERT|UPDATE|DELETE|DROP|CAST|DECLARE) [NC]
+    
+    # Blokir Request jika memenuhi kondisi di atas (Forbidden 403)
+    RewriteRule ^ - [F,L]
+</IfModule>
+
+# 6. DISABLE TRACE AND TRACK METHODS (Mencegah Cross-Site Tracing)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK) [NC]
+    RewriteRule ^ - [F,L]
+</IfModule>
