@@ -11,7 +11,7 @@
         <input class="form-control" type="text" name="nama_jabatan" id="nama_jabatan" value="{{$jabatan->nama_jabatan}}">
         <label class="form-label" for="gaji_pokok">Gaji Pokok</label>
         <input class="form-control" type="number" name="gaji_pokok" id="gaji_pokok" value="{{$jabatan->gaji_pokok}}">
-        <label class="form-label" for="tunjangan}}">Tunjangan</label>
+        <label class="form-label" for="tunjangan">Tunjangan</label>
         <input class="form-control" type="number" name="tunjangan" id="tunjangan" value="{{$jabatan->tunjangan}}">
         <div class="my-3 justify-content-center d-flex">
             <button class="btn btn-success w-50" type="submit">Ubah Data Jabatan</button>
